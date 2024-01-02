@@ -1,0 +1,123 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block define_style %}
+<link rel="stylesheet" href="{% static 'home-style/css/home.css' %}">
+<link rel="stylesheet" href="{% static 'home-style/css/media-queries.css' %}">
+<title>Home</title>
+{% endblock %}
+
+
+{% block content %}
+
+<div class="banner">
+    <h1 class="banner-title">Australia</h1>
+    <h3 class="banner-text">Pixel perfect design with awesome contents</h3>
+    <button class="btn explore-btn">Explore Now</button>
+</div>
+
+<div class="input-box">
+    <form class="inputs" action="">
+        <h3 class="input-text">Where you want to go?</h3>
+        <input class="search-input" type="search" placeholder="Where to go?">
+        <input class="search-input" type="search" placeholder="Where to go?">
+        <input class="search-input" type="search" placeholder="Where to go?">
+        <input class="btn submit-btn" type="submit" placeholder="Search">
+    </form>
+</div>
+
+
+<div class="main-content">
+    <h1 class="main-title">Popular Destination</h1>
+    <h6 class="main-text">Suffered alteration in some form, by injected humour or good day randomised booth anim 8-bit
+        hella wolf moon beard words.</h6>
+    <div class="imgs-box">
+        <div class="img1 img-content">
+            <img src="{% static 'home-style/img/1.png' %}" alt="">
+            <div class="img-text">
+                <h2 class="country">Italy</h2>
+                <h3 class="number-places">07 Places</h3>
+            </div>
+            <div class="backdrop-content"></div>
+
+
+        </div>
+        <div class="img2 img-content">
+            <img src="{% static 'home-style/img/2.png' %}" alt="">
+            <div class="img-text">
+                <h2 class="country">Brazil</h2>
+                <h3 class="number-places">03 Places</h3>
+            </div>
+            <div class="backdrop-content"></div>
+        </div>
+
+        <div class="img3 img-content">
+            <img src="{% static 'home-style/img/3.png' %}" alt="">
+            <div class="img-text">
+                <h2 class="country">America</h2>
+                <h3 class="number-places">10 Places</h3>
+            </div>
+            <div class="backdrop-content"></div>
+        </div>
+        <div class="img4 img-content">
+            <img src="{% static 'home-style/img/4.png' %}" alt="">
+            <div class="img-text">
+                <h2 class="country">Nepal</h2>
+                <h3 class="number-places">02 Places</h3>
+            </div>
+            <div class="backdrop-content"></div>
+        </div>
+        <div class="img5 img-content">
+            <img src="{% static 'home-style/img/5.png' %}" alt="">
+            <div class="img-text">
+                <h2 class="country">Maldives</h2>
+                <h3 class="number-places">02 Places</h3>
+            </div>
+            <div class="backdrop-content"></div>
+        </div>
+
+        <div class="img6 img-content">
+            <img src="{% static 'home-style/img/6.png' %}" alt="">
+            <div class="img-text">
+                <h2 class="country">Maldives</h2>
+                <h3 class="number-places">02 Places</h3>
+            </div>
+            <div class="backdrop-content"></div>
+        </div>
+
+    </div>
+
+    <div class="input-subscribe">
+        <div class="subscribe-content">
+            <div class="subscribe">
+                <h1 class="subscribe-title">Subscribe Our Newsletter</h1>
+                <h6 class="subscribe-text">subscribe newsletter to get offers and about new places to discover</h6>
+            </div>
+            <form action="" class="form-subscribe">
+                <input type="email" class="search-subscribe" placeholder="Your mail">
+                <input type="submit" class="btn submit-subscribe" value="Subscribe">
+            </form>
+        </div>
+
+
+
+        <div class="backdrop"></div>
+    </div>
+
+    <div class="footer-video">
+        <h1 class="video-title"> Enjoy Video</h1>
+
+        <div class="video-logo">
+            <i class="gg-play-button-o"></i>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
+
+
+{% block add_js%}
+<script src="{% static 'home-style/js/app.js' %}"></script>
+{% endblock%}

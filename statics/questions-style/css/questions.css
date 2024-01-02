@@ -1,0 +1,202 @@
+
+/* ask questions part */
+
+.ques-box {
+  max-width: 1400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 0 auto;
+  padding-bottom: 100px;
+}
+
+.ques-box > h2 {
+  text-align: center;
+  font-family: "Nunito";
+  font-weight: 600;
+  font-size: 40px;
+  margin-top: 35px;
+}
+.ques-box > p {
+  text-align: center;
+  font-family: "Nunito";
+  font-weight: 700;
+  font-size: 20px;
+  margin-top: 35px;
+  color: rgba(105, 105, 105, 1);
+  max-width: 893px;
+  margin-bottom: 49px;
+}
+
+.comment-img-info {
+  width: 279.52px;
+  height: 238.07px;
+  position: relative;
+}
+.circle {
+  position: absolute;
+  border-radius: 100%;
+  background-color: rgba(194, 194, 194, 1);
+}
+.cir1 {
+  width: 49.16px;
+  height: 49.16px;
+  top: 8.67px;
+  right: 65.54px;
+}
+.cir2 {
+  width: 57.83px;
+  height: 57.83px;
+  right: 7.71px;
+  bottom: 8.67px;
+}
+.cir3 {
+  width: 49.16px;
+  height: 49.16px;
+  bottom: 88.67px;
+  right: 238.07px;
+}
+.comment-img-info > img {
+  width: 161px;
+  height: 161px;
+  border-radius: 17px;
+  z-index: 1000;
+  position: absolute;
+  top: 30px;
+  right: 55px;
+}
+
+.white-circle {
+  width: 4.5rem;
+  height: 2rem;
+  background-color: #fff;
+}
+.w-circle-1 {
+  margin-top: -0.5rem;
+  border-radius: 0 0 2rem 2rem;
+}
+.w-circle-2 {
+  margin-bottom: -0.5rem;
+  border-radius: 2rem 2rem 0 0;
+}
+.line-between {
+  border: 2px dashed rgba(208, 208, 208, 1);
+  height: 100%;
+  width: 0;
+}
+.comment-line-between {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+}
+.comment-origin {
+  display: flex;
+  background-color: rgba(238, 238, 238, 1);
+  border-radius: 17px;
+  width: 1200px;
+  justify-content: space-between;
+  margin-bottom: 21.58px;
+}
+.comment-text {
+  padding-top: 22.17px;
+  padding-left: 34.7px;
+  padding-bottom: 12.42px;
+}
+.last-name {
+  position: absolute;
+  font-family: "Nunito";
+  font-weight: 700;
+  font-size: 26px;
+  bottom: 7.42px;
+  right: 83px;
+}
+
+.first-name {
+  font-family: "Nunito";
+  font-weight: 700;
+  font-size: 26px;
+}
+.comment-discrption {
+  color: rgba(155, 155, 155, 1);
+  font-family: "Nunito";
+  font-weight: 700;
+  font-size: 20px;
+  margin-top: 31px;
+  max-width: 608px;
+}
+.options-comment {
+  margin-top: 24px;
+  display: flex;
+}
+.last-part-comment {
+  display: flex;
+}
+.options-comment > form > input[type="text"] {
+  width: 537px;
+  padding: 9px 15px;
+  border-radius: 13px;
+  outline: none;
+  border: 1px solid rgba(105, 105, 105, 1);
+  font-family: "Nunito";
+  font-weight: 700;
+  font-size: 15px;
+}
+.options-comment > form > input[type="submit"] {
+  padding: 9px 15px;
+  background-color: rgba(105, 105, 105, 1);
+  outline: none;
+  color: #fff;
+  border-radius: 13px;
+  width: 125px;
+  height: 45px;
+  font-family: "Nunito";
+  font-weight: 700;
+  font-size: 17px;
+  margin: 0 7px;
+}
+.options-comment > button {
+  padding: 9px 15px;
+  background-color: transparent;
+  border: 1px solid rgba(105, 105, 105, 1);
+  border-radius: 13px;
+  color: rgba(105, 105, 105, 1);
+  height: 45px;
+  font-family: "Nunito";
+  font-weight: 700;
+  font-size: 17px;
+}
+.sub-comment {
+  margin-bottom: 21.58px;
+}
+.sub-comment {
+  display: flex;
+  border: 1px solid rgba(238, 238, 238, 1);
+  border-radius: 17px;
+  width: 1100px;
+  justify-content: space-between;
+  margin-bottom: 16.58px;
+}
+
+.white-circle {
+  width: 4.5rem;
+  height: 2rem;
+  background-color: #fff;
+}
+.w-circle-1-sub {
+  margin-top: -0.5rem;
+  border-radius: 0 0 2rem 2rem;
+  border-bottom: 9px solid rgba(238, 238, 238, 1);
+}
+.w-circle-2-sub {
+  margin-bottom: -0.5rem;
+  border-radius: 2rem 2rem 0 0;
+  border-top: 9px solid rgba(238, 238, 238, 1);
+}
+.any-comment {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

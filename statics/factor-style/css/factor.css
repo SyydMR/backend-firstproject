@@ -1,0 +1,258 @@
+/* factor styles */
+.factor-head-text {
+  font-size: 40px;
+  margin: 40px 0;
+  font-family: "Nunito";
+}
+
+.factor {
+  padding-top: 30px;
+  width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.factor-box {
+  background-color: #d3f4f5;
+  border-radius: 24px;
+  width: 100%;
+}
+
+.factor-header-img {
+  width: 133px;
+}
+.factor-header-text {
+  margin-left: 30px;
+  max-width: 700px;
+  font-family: "Nunito";
+}
+.factor-header-text > p {
+  font-size: 20px;
+  color: rgba(105, 105, 105, 1);
+}
+.factor-header-text > span {
+  font-size: 15px;
+  color: rgba(223, 62, 62, 1);
+}
+.factor-header-text > h1 {
+  font-size: 26px;
+  color: rgba(0, 0, 0, 1);
+  font-weight: 700;
+}
+.header-factor {
+  display: flex;
+  padding: 30px;
+  padding-bottom: 0;
+  padding-right: 60px;
+  justify-content: space-between;
+}
+.header-factor > .img-box {
+  display: flex;
+}
+.factor-header-price {
+  font-size: 26px;
+  font-weight: 700;
+}
+.between-header-body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: -75px;
+}
+.white-circle-left {
+  width: 150px;
+  background-color: white;
+  height: 150px;
+  border-radius: 100%;
+  margin-left: -110px;
+}
+.dotted-line {
+  border-bottom: 4px dashed rgb(221, 221, 221);
+  width: 100%;
+}
+.white-circle-right {
+  width: 150px;
+  background-color: white;
+  height: 150px;
+  border-radius: 100%;
+  margin-right: -110px;
+}
+.factor-body {
+  background: url(../img/zamin-img.png) center bottom/cover repeat padding-box;
+  width: 100%;
+  border-radius: 24px;
+  padding-top: 25px;
+  padding-bottom: 60px;
+}
+.parent-details {
+  margin-top: 20px;
+  display: flex;
+}
+.parent-details > div > h6 {
+  font-size: 20px;
+  font-weight: 700;
+  font-family: "Nunito";
+}
+.parent-details > div > p {
+  font-size: 20px;
+  font-weight: 700;
+  font-family: "Nunito";
+  color: #696969;
+}
+.parent-name {
+  margin-right: 40px;
+}
+.price-d > h4 {
+  font-size: 26px;
+  font-weight: 700;
+  font-family: "Nunito";
+}
+.price-d > p {
+  font-size: 26px;
+  font-weight: 700;
+  font-family: "Nunito";
+  color: #696969;
+}
+.p-date > h4 {
+  font-size: 20px;
+  font-weight: 700;
+  font-family: "Nunito";
+}
+.p-date > p {
+  font-size: 20px;
+  font-weight: 700;
+  font-family: "Nunito";
+  color: #696969;
+}
+.factor-header-price-date {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.factor-header-price-date > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+/* factor body */
+
+.factor-body {
+  display: flex;
+  justify-content: start;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 60px;
+}
+.vehicle-transport {
+  width: 739px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.vehicle-transport > section {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+}
+.vehicle-transport > section > .place-txt {
+  font-size: 20px;
+  font-weight: 700;
+  font-family: "Nunito";
+  color: rgba(105, 105, 105, 1);
+}
+.vehicle-transport > section > h2 {
+  font-size: 45px;
+  font-weight: 400;
+  font-family: "MV Boli";
+  color: rgba(0, 0, 0, 1);
+}
+.vehicle-transport > section > .origin-date {
+  font-size: 14px;
+  font-weight: 700;
+  font-family: "Nunito";
+  color: rgba(105, 105, 105, 1);
+}
+.vehicle-transport > section > .origin-time {
+  font-size: 14px;
+  font-weight: 700;
+  font-family: "Nunito";
+  color: rgba(105, 105, 105, 1);
+}
+.vehicle-line {
+  position: relative;
+  width: 460px;
+  margin: 0 30px;
+}
+@keyframes move-vehicle {
+  from { left: 0;}
+  to { left: 390px;}
+}
+.vehicle-icon {
+  width: 100px;
+  height: 100px;
+  animation-name: move-vehicle;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  position: absolute;
+  left: 0;
+  top: -35.5px;
+  z-index: 1000;
+}
+.vehicle-arrow{
+  position: absolute;
+  left: 0;
+  top: 0; 
+}
+.passengers-info{
+  background-color: rgba(255, 255, 255, 0.36);
+  width: 961px;
+  padding: 20px 33px 59px 33px;
+  border-radius: 15px;
+  margin: 60px 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+td{
+  font-family: 'Nunito';
+  font-size: 20px;
+  font-weight: 700;
+  color: rgba(105, 105, 105, 1);
+  padding: 0 70px;
+}
+th{
+  font-family: 'Nunito';
+  font-size: 20px;
+  font-weight: 700;
+  color: rgba(0, 0, 0, 1);
+}
+.passengers-info > div > h3 {
+  font-family: 'Nunito';
+  font-size: 20px;
+  font-weight: 700;
+  color: rgba(0, 0, 0, 1);
+}
+.passengers-info > div > p {
+  font-family: 'Nunito';
+  font-size: 20px;
+  font-weight: 700;
+  color: rgba(105, 105, 105, 1);
+}
+.print-factor{
+  background-color: transparent;
+  border: none;
+  outline: none;
+  display: flex;
+  cursor: pointer;
+}
+.print-factor > p{
+  font-size: 26px;
+  font-weight: 700;
+  font-family: 'Nunito';
+  color: rgba(0, 0, 0, 1);
+  margin-left: 15px;
+}

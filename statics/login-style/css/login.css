@@ -1,0 +1,250 @@
+.sign-box {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 17px;
+  flex: 4;
+  z-index: 1;
+  direction: rtl;
+  font-family: "koodak";
+  margin: 150px 0;
+}
+.login-text {
+  margin-bottom: 15px;
+  font-size: 50px;
+  font-family: 'Nunito';
+}
+
+.in-in-login {
+  opacity: 80%;
+  color: var(--lightBlue);
+}
+.login-box {
+  padding: 20px 20px;
+}
+
+.login {
+  display: flex;
+  flex-direction: column;
+}
+
+.log-inp {
+  margin: 0 auto;
+  font-size: 17px;
+  outline: none;
+  direction: ltr;
+}
+
+.flex-con {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.new-acc {
+  display: flex;
+  font-size: 15px;
+}
+.new-acc > a {
+  margin-right: 10px;
+  font-size: 13px;
+}
+.login-box > a {
+  font-size: 15px;
+}
+.submit {
+  font-family: "koodak";
+  padding: 5px 106px;
+  border: none;
+  background-color: var(--lightBlue);
+  opacity: 80%;
+  color: #fff;
+  margin-bottom: 10px;
+  transition: opacity 0.5s;
+}
+.submit:hover {
+  opacity: 100%;
+}
+.submit:active {
+  opacity: 80%;
+  background-color: var(--darkBlue);
+}
+.pass {
+  border: none;
+  border-bottom: 1px solid #00000067;
+  padding: 7px 13px;
+  margin-bottom: 40px;
+}
+
+.mail {
+  border: none;
+  border-bottom: 1px solid #00000067;
+  padding: 7px 13px;
+}
+.password-lbl {
+  margin-top: 12px;
+}
+
+.line-under-login {
+  position: relative;
+  padding-bottom: 20px;
+  /*--------------------------------*/
+  font-weight: 700;
+  width: 280px;
+  /*وزن متن را تعیین میکند مثلا متنو بولد میکند*/
+  /*-----------------------------------*/
+}
+
+.line-under-login:after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  content: "";
+  width: 100%;
+  height: 1px;
+  background: #00000067;
+}
+
+.line-under-login:before {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  content: "";
+  width: 120px;
+  height: 5px;
+  background: var(--darkBlue);
+  z-index: 1;
+  opacity: 80%;
+}
+input{
+  font-family: "PrincessSofiaBold";
+  font-weight: 800;
+  width: 250px;
+}
+.line-under-input {
+  position: relative;
+  padding-bottom: 20px;
+  width: 280px;
+  margin: 20px 0;
+  /*--------------------------------*/
+  font-weight: 700;
+  /*وزن متن را تعیین میکند مثلا متنو بولد میکند*/
+  /*-----------------------------------*/
+}
+
+.line-under-input:after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  content: "";
+  width: 100%;
+  height: 1px;
+  background: #00000067;
+}
+
+.line-under-input:before {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  content: "";
+  width: 120px;
+  height: 5px;
+  background: var(--lightBlue);
+  z-index: 1;
+}
+
+:root {
+  --primary-color: #111;
+  --secondary-color: #a8adb3;
+}
+
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+}
+
+
+.container-tab {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 5px;
+}
+
+.tabs {
+  display: flex;
+  position: relative;
+  background-color: #fff;
+  padding: 0;
+  border: 1px solid rgba(205, 205, 205, 0.518);
+  border-radius: 10px;
+}
+
+.tabs * {
+  z-index: 2;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+.tab {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 20px;
+  width: 60px;
+  font-size: 13px;
+  font-weight: 500;
+  border-radius: 99px;
+  cursor: pointer;
+  transition: color 0.15s ease-in;
+}
+
+.notification {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  margin-left: 10px;
+  border-radius: 50%;
+  background-color: var(--secondary-color);
+  transition: 0.15s ease-in;
+}
+
+input[type="radio"]:checked + label {
+  color: var(--primary-color);
+}
+
+input[type="radio"]:checked + label > .notification {
+  background-color: var(--primary-color);
+  color: #fff;
+}
+
+input[id="radio-1"]:checked ~ .glider {
+  transform: translateX(0);
+}
+
+input[id="radio-2"]:checked ~ .glider {
+  transform: translate(-100%);
+}
+.glider {
+  position: absolute;
+  display: flex;
+  height: 20px;
+  width: 60px;
+  background-color: var(--lightBlue);
+  opacity: 40%;
+  z-index: 1;
+  border-radius: 10px;
+  transition: 0.25s ease-out;
+}
+
+
+.login-boxes{
+  display: flex;
+  flex-direction: row;
+}

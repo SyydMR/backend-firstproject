@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block define_style %}
+<link rel="stylesheet" href="{% static 'login-style/css/login.css' %}">
+<link rel="stylesheet" href="{% static 'login-style/css/media-queries.css' %}">
+<title>login</title>
+{% endblock %}
+
+
+{% block content %}
+
+
+<div class="sign-box">
+    <h1 class="login-text">Log<span class="in-in-login">in</span></h1>
+    <div class="line-under-login"></div>
+    <div class="login-box">
+        <form action="#" method="post" class="login">
+            <label class="email-lbl" for="mail_id">ایمیل: </label>
+            <input class="log-inp mail" type="email" id="mail_id">
+            <label class="password-lbl" for="pass_id">پسورد: </label>
+            <input class="log-inp pass" type="password" id="pass_id">
+            <input class="log-inp submit" type="submit" text="salam" value="تایید">
+        </form>
+        <div class="line-under-input"></div>
+        <a href="#">رمز عبور خود را فراموش کرده اید؟</a>
+        <div class="new-acc">
+            <p>حساب کاربری ندارید ؟</p>
+            <div class="container-tab">
+                <div class="tabs">
+
+                    <input type="radio" id="radio-1" name="tabs" onclick="change_loc('../signup/signup.html')" />
+                    <label class="tab" for="radio-1">ثبت نام</label>
+                    <input type="radio" id="radio-2" name="tabs" checked />
+                    <label class="tab" for="radio-2">ورود</label>
+
+
+
+                    <span class="glider"></span>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}
+
+
+{% block add_js%}
+<script src="{% static 'login-style/js/app.js' %}"></script>
+{% endblock%}
