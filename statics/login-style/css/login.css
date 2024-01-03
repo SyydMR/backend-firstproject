@@ -37,11 +37,6 @@
   direction: ltr;
 }
 
-.flex-con {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
 .new-acc {
   display: flex;
   font-size: 15px;

@@ -1,15 +1,11 @@
 .sign-box {
-  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   font-size: 17px;
-  flex: 4;
-  z-index: 1;
-  direction: rtl;
   font-family: "koodak";
-  margin: 150px 0;
+  margin: 150px auto;
 }
 .signup-text {
   margin-bottom: 15px;
@@ -36,11 +32,6 @@
   direction: ltr;
 }
 
-.flex-con {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
 .new-acc {
   display: flex;
   font-size: 15px;

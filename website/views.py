@@ -6,11 +6,15 @@ from django.http import JsonResponse
 
 # def json_test(requests):
 #     return JsonResponse({'hello world':'3'})
-
+from website.models import Destination
 
 
 def home_view(request):
-    return render(request, 'home.html')
+    # ------------------------------------- #
+    dests = Destination.objects.filter(status=1)
+    context = {'dests':dests}
+    # ------------------------------------- #
+    return render(request, 'home.html', context)
 
 def aboutus_view(request):
     return render(request, 'aboutus.html')
@@ -32,10 +36,6 @@ def ticket_view(request):
 
 def login_view(request):
     return render(request, 'login.html')
-
-
-
-
 
 
 

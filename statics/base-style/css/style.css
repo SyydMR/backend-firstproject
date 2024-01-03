@@ -166,8 +166,6 @@ a {
   max-width: 1400px;
 }
 
-
-
 .menu {
   list-style-type: none;
   display: flex;
@@ -262,10 +260,8 @@ a {
   margin: 0 auto;
   max-width: 1400px;
   margin-top: 10px;
-  
-
 }
-.background-footer{
+.background-footer {
   background-color: var(--darkBlue);
 }
 .footer-logo {
@@ -306,7 +302,7 @@ a {
   line-height: 20px;
 }
 
-.header-btn{
+.header-btn {
   border: none;
   outline: none;
   padding: 15px 25px;
@@ -314,14 +310,15 @@ a {
   cursor: pointer;
   font-size: 17px;
   font-weight: 700;
-  font-family: 'Nunito';
+  font-family: "Nunito";
 }
-.signin-btn{
+.signin-btn {
   border: 1px solid var(--darkBlue);
   background-color: #fff;
   color: var(--darkBlue);
+  margin-right: 10px;
 }
-.login-btn{
+.login-btn {
   background-color: var(--darkBlue);
   color: white;
 }

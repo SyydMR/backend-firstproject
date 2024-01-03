@@ -22,19 +22,19 @@
 
         <div class="header">
             <div class="sign-log">
-                <button class="header-btn signin-btn">
+                <a class="header-btn signin-btn" href="{% url 'website:signup' %}">
                     sign in
-                </button>
-                <button class="header-btn login-btn">
+                </a>
+                <a class="header-btn login-btn" href="{% url 'website:login' %}">
                     login
-                </button>
+                </a>
             </div>
             <ul class="menu">
-                <li class="menu-item"><a class="menu-btn" href="../home/index.html">Home</a></li>
-                <li class="menu-item"><a class="menu-btn" href="../about/about.html">About us</a></li>
-                <li class="menu-item"><a class="menu-btn" href="../destination/Destination.html">Panel</a></li>
-                <li class="menu-item"><a class="menu-btn" href="../pages/pages.html">Buy Ticket</a></li>
-                <li class="menu-item"><a class="menu-btn" href="../blog/Blog.html">Questions</a></li>
+                <li class="menu-item"><a class="menu-btn" href="{% url 'website:home' %}">Home</a></li>
+                <li class="menu-item"><a class="menu-btn" href="{% url 'website:about' %}">About us</a></li>
+                <li class="menu-item"><a class="menu-btn" href="{% url 'website:panel' %}">Panel</a></li>
+                <li class="menu-item"><a class="menu-btn" href="{% url 'website:ticket' %}">Buy Ticket</a></li>
+                <li class="menu-item"><a class="menu-btn" href="{% url 'website:questions' %}">Questions</a></li>
             </ul>
             <div class="header-logo">
                 <div class="search-logo">
@@ -56,11 +56,11 @@
 
         <div class="menu-burger">
             <ul class="menu-burger-list">
-                <li class="menu-burger-item"><a class="menu-btn" href="../home/index.html">Home</a></li>
-                <li class="menu-burger-item"><a class="menu-btn" href="../about/about.html">About us</a></li>
-                <li class="menu-burger-item"><a class="menu-btn" href="../destination/Destination.html">Panel</a></li>
-                <li class="menu-burger-item"><a class="menu-btn" href="../pages/pages.html">Buy Ticket</a></li>
-                <li class="menu-burger-item"><a class="menu-btn" href="../blog/Blog.html">Questions</a></li>
+                <li class="menu-burger-item"><a class="menu-btn" href="{% url 'website:home' %}">Home</a></li>
+                <li class="menu-burger-item"><a class="menu-btn" href="{% url 'website:about' %}">About us</a></li>
+                <li class="menu-burger-item"><a class="menu-btn" href="{% url 'website:panel' %}">Panel</a></li>
+                <li class="menu-burger-item"><a class="menu-btn" href="{% url 'website:ticket' %}">Buy Ticket</a></li>
+                <li class="menu-burger-item"><a class="menu-btn" href="{% url 'website:questions' %}">Questions</a></li>
             </ul>
 
         </div>
