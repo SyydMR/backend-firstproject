@@ -1,20 +1,33 @@
-from django.shortcuts import render
-from django.http import HttpResponse
-from django.http import JsonResponse
-# def http_test(requests):
-#     return HttpResponse('hello world')
+from django.shortcuts import render, get_object_or_404
 
-# def json_test(requests):
-#     return JsonResponse({'hello world':'3'})
 from website.models import Destination
-
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 def home_view(request):
+
     # ------------------------------------- #
     dests = Destination.objects.filter(status=1)
-    context = {'dests':dests}
     # ------------------------------------- #
+    dests = Paginator(dests, 6)
+    try:
+        page_number = request.GET.get('page')
+        dests = dests.get_page(page_number)
+
+    except PageNotAnInteger:
+        dests = dests.get_page(1)
+    except EmptyPage:
+        dests = dests.get_page(1)
+    context = {'dests':dests}
+
+
+
+
+
     return render(request, 'home.html', context)
+
+
+
+
 
 def aboutus_view(request):
     return render(request, 'aboutus.html')
@@ -31,8 +44,10 @@ def questions_view(request):
 def signup_view(request):
     return render(request, 'signup.html')
 
-def ticket_view(request):
-    return render(request, 'ticket.html')
+def ticket_view(request, pid):
+    dest = get_object_or_404(Destination, pk=pid, status=1)
+    context = {'dest':dest}
+    return render(request, 'ticket.html', context)
 
 def login_view(request):
     return render(request, 'login.html')

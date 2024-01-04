@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load website_tags %}
 
 
 {% block define_style %}
@@ -35,76 +36,72 @@
     <div class="imgs-box">
 
 
+
         {% for dest in dests %}
         {% if dest.status == 1 %}
-        <div class="img-content">
-            <img src="{% static 'home-style/img/1.png' %}" alt="">
+        <a class="img-content" href="/ticket/{{dest.id}}">
+            <img src="{{dest.img.url}}" alt="">
             <div class="img-text">
-                <h2 class="country">{{dest.description}}</h2>
+                <h2 class="country">{{dest.city_id|split_dash}}</h2>
                 <h3 class="number-places">07 Places</h3>
             </div>
             <div class="backdrop-content"></div>
 
 
-        </div>
-        {% else %}
-        <div class="img-content">
-            <div class="img-text">
-                <h2 class="country">not published yet</h2>
-                <h3 class="number-places"></h3>
-            </div>
-            <div class="backdrop-content"></div>
-
-
-        </div>
+        </a>
         {% endif %}
         {% endfor %}
 
 
-        <div class="img-content">
-            <img src="{% static 'home-style/img/2.png' %}" alt="">
-            <div class="img-text">
-                <h2 class="country">Brazil</h2>
-                <h3 class="number-places">03 Places</h3>
-            </div>
-            <div class="backdrop-content"></div>
-        </div>
-
-        <div class="img-content">
-            <img src="{% static 'home-style/img/3.png' %}" alt="">
-            <div class="img-text">
-                <h2 class="country">America</h2>
-                <h3 class="number-places">10 Places</h3>
-            </div>
-            <div class="backdrop-content"></div>
-        </div>
-        <div class="img-content">
-            <img src="{% static 'home-style/img/4.png' %}" alt="">
-            <div class="img-text">
-                <h2 class="country">Nepal</h2>
-                <h3 class="number-places">02 Places</h3>
-            </div>
-            <div class="backdrop-content"></div>
-        </div>
-        <div class="img-content">
-            <img src="{% static 'home-style/img/5.png' %}" alt="">
-            <div class="img-text">
-                <h2 class="country">Maldives</h2>
-                <h3 class="number-places">02 Places</h3>
-            </div>
-            <div class="backdrop-content"></div>
-        </div>
-
-        <div class="img-content">
-            <img src="{% static 'home-style/img/6.png' %}" alt="">
-            <div class="img-text">
-                <h2 class="country">Maldives</h2>
-                <h3 class="number-places">02 Places</h3>
-            </div>
-            <div class="backdrop-content"></div>
-        </div>
-
     </div>
+
+
+
+    <div class="pagination">
+        <span class="step-links">
+            {% if dests.has_previous %}
+            <a href="?page={{ dests.previous_page_number }}">
+                <div class="svg-ic">
+                    <svg class="pag-ic" xmlns="http://www.w3.org/2000/svg" width="27" height="27" fill="currentColor"
+                        class="bi bi-caret-left-fill" viewBox="0 0 16 16">
+                        <path
+                            d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z" />
+                    </svg>
+                </div>
+
+            </a>
+            {% endif %}
+
+            <span class="current">
+                {% for i in dests.paginator.page_range %}
+                <a href="?page={{i}}">{{i}}</a>
+                {% endfor %}
+            </span>
+
+            {% if dests.has_next %}
+            <a href="?page={{ dests.next_page_number }}">
+                <div class="svg-ic">
+                    <svg class="pag-ic" xmlns="http://www.w3.org/2000/svg" width="27" height="27" fill="currentColor"
+                        class="bi bi-caret-right-fill" viewBox="0 0 16 16">
+                        <path
+                            d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />
+                    </svg>
+                </div>
+
+            </a>
+            {% endif %}
+        </span>
+    </div>
+
+
+
+
+
+
+
+
+
+
 
     <div class="input-subscribe">
         <div class="subscribe-content">

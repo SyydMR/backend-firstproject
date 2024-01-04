@@ -69,7 +69,7 @@ class Transportation(models.Model):
 class Destination(models.Model):
     city_id = models.ForeignKey(City, on_delete=models.SET_NULL, null=True) # Foreign key
     description = models.TextField()
-
+    img = models.ImageField(upload_to='destination_images/', default='destination_images/no_img.jpg')
     counted_views = models.IntegerField(default=0)
     status = models.BooleanField(default=False)
     published_date = models.DateTimeField(null=True)
@@ -80,6 +80,16 @@ class Destination(models.Model):
 
     def __str__(self):
         return "{}".format(self.id)
+
+    # def snippets(self):
+    #     return self.description[:100] + '...'
+
+
+
+
+
+
+
 
 
 class Invoice(models.Model):

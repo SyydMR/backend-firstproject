@@ -5,7 +5,7 @@ from website.models import Destination, Comment, Destination_User, Invoice, Tran
 class DestinationAdmin(admin.ModelAdmin):
     date_hierarchy = 'created_date'
     empty_value_display = '-empty-'
-    list_display = ('id', 'counted_views', 'status', 'published_date', 'created_date')
+    list_display = ('id', 'city_id' ,'counted_views', 'status', 'published_date', 'created_date')
     list_filter = ('status', )
     ordering = ['created_date']
     # or ordering = ['-created_date']

@@ -20,44 +20,38 @@ function change_loc(url) {
 function applyTranform1() {
   document.getElementById("lbl1").style.transform = "translate(0, 0)";
   document.getElementById("lbl1").style.color = "black";
-  document.getElementById("lbl1").style.transition = "0.5s all";
-  document.getElementById("lbl1").style.fontSize = "24px";
+  document.getElementById("lbl1").style.transition = "0.3s all";
 }
 
 function applyTranform2() {
   document.getElementById("lbl2").style.transform = "translate(0, 0)";
   document.getElementById("lbl2").style.color = "black";
-  document.getElementById("lbl2").style.transition = "0.5s all";
-  document.getElementById("lbl2").style.fontSize = "24px";
+  document.getElementById("lbl2").style.transition = "0.3s all";
 }
 
 function applyTranform3() {
   document.getElementById("lbl3").style.transform = "translate(0, 0)";
   document.getElementById("lbl3").style.color = "black";
-  document.getElementById("lbl3").style.transition = "0.5s all";
-  document.getElementById("lbl3").style.fontSize = "24px";
+  document.getElementById("lbl3").style.transition = "0.3s all";
 }
 
 function applyTranform4() {
   document.getElementById("lbl4").style.transform = "translate(0, 0)";
   document.getElementById("lbl4").style.color = "black";
-  document.getElementById("lbl4").style.transition = "0.5s all";
-  document.getElementById("lbl4").style.fontSize = "24px";
+  document.getElementById("lbl4").style.transition = "0.3s all";
 }
 
 function applyTranform5() {
   document.getElementById("lbl5").style.transform = "translate(0, 0)";
   document.getElementById("lbl5").style.color = "black";
-  document.getElementById("lbl5").style.transition = "0.5s all";
-  document.getElementById("lbl5").style.fontSize = "24px";
+  document.getElementById("lbl5").style.transition = "0.3s all";
 
 }
 
 function applyTranform6() {
   document.getElementById("lbl6").style.transform = "translate(0, 0)";
   document.getElementById("lbl6").style.color = "black";
-  document.getElementById("lbl6").style.transition = "0.5s all";
-  document.getElementById("lbl6").style.fontSize = "24px";
+  document.getElementById("lbl6").style.transition = "0.3s all";
 }
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -78,7 +72,6 @@ document.addEventListener("DOMContentLoaded", function () {
     if (inputElement1.value === "") {
       labelElement1.style.transform = "translate(20px, 40px)";
       labelElement1.style.color = "#a8adb3";
-      labelElement2.style.fontSize = "20px";
       
     }
   });
@@ -86,7 +79,6 @@ document.addEventListener("DOMContentLoaded", function () {
     if (inputElement2.value === "") {
       labelElement2.style.transform = "translate(20px, 40px)";
       labelElement2.style.color = "#a8adb3";
-      labelElement2.style.fontSize = "20px";
 
     }
   });
@@ -94,7 +86,6 @@ document.addEventListener("DOMContentLoaded", function () {
     if (inputElement3.value === "") {
       labelElement3.style.transform = "translate(20px, 40px)";
       labelElement3.style.color = "#a8adb3";
-      labelElement3.style.fontSize = "20px";
 
     }
   });
@@ -102,7 +93,6 @@ document.addEventListener("DOMContentLoaded", function () {
     if (inputElement4.value === "") {
       labelElement4.style.transform = "translate(20px, 40px)";
       labelElement4.style.color = "#a8adb3";
-      labelElement4.style.fontSize = "20px";
 
     }
   });
@@ -110,14 +100,12 @@ document.addEventListener("DOMContentLoaded", function () {
     if (inputElement5.value === "") {
       labelElement5.style.transform = "translate(20px, 40px)";
       labelElement5.style.color = "#a8adb3";
-      labelElement5.style.fontSize = "20px";
     }
   });
   inputElement6.addEventListener("blur", function () {
     if (inputElement6.value === "") {
       labelElement6.style.transform = "translate(20px, 40px)";
       labelElement6.style.color = "#a8adb3";
-      labelElement6.style.fontSize = "20px";
     }
   });
 });
