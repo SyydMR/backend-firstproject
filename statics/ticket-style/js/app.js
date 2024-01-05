@@ -45,7 +45,6 @@ function applyTranform5() {
   document.getElementById("lbl5").style.transform = "translate(0, 0)";
   document.getElementById("lbl5").style.color = "black";
   document.getElementById("lbl5").style.transition = "0.3s all";
-
 }
 
 function applyTranform6() {
@@ -60,7 +59,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const inputElement3 = document.getElementById("origin");
   const inputElement4 = document.getElementById("phone");
   const inputElement5 = document.getElementById("date");
-  const inputElement6 = document.getElementById("mellicode");
+  const inputElement6 = document.getElementById("count");
+
   const labelElement1 = document.getElementById("lbl1");
   const labelElement2 = document.getElementById("lbl2");
   const labelElement3 = document.getElementById("lbl3");
@@ -72,28 +72,24 @@ document.addEventListener("DOMContentLoaded", function () {
     if (inputElement1.value === "") {
       labelElement1.style.transform = "translate(20px, 40px)";
       labelElement1.style.color = "#a8adb3";
-      
     }
   });
   inputElement2.addEventListener("blur", function () {
     if (inputElement2.value === "") {
       labelElement2.style.transform = "translate(20px, 40px)";
       labelElement2.style.color = "#a8adb3";
-
     }
   });
   inputElement3.addEventListener("blur", function () {
     if (inputElement3.value === "") {
       labelElement3.style.transform = "translate(20px, 40px)";
       labelElement3.style.color = "#a8adb3";
-
     }
   });
   inputElement4.addEventListener("blur", function () {
     if (inputElement4.value === "") {
       labelElement4.style.transform = "translate(20px, 40px)";
       labelElement4.style.color = "#a8adb3";
-
     }
   });
   inputElement5.addEventListener("blur", function () {
@@ -110,22 +106,51 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+
+
+
+let container = document.getElementById("container_count");
+
+function btn_count_national_code() {
+  const input = document.getElementById("count");
+  const inputValue = parseInt(input.value);
+  if ((inputValue == null) || (inputValue <= 0)) {
+    inputValue = 0
+  }
+  container.innerHTML = ``;
+  for (let i = 0; i < inputValue; i++) {
+    container.innerHTML += `
+    <div class="div-mellicode inp-div">
+        <label class="lbl-mellicode lbl">National Code ` + parseInt(i + 1) + `</label>
+        <input class="inp-mellicode inp" type="text">
+    </div>
+    `;
+  }
+}
+
+
+
+
+
+
+
+
+
 document.getElementById("radio-1").addEventListener("click", myFunction1, true);
 document.getElementById("radio-2").addEventListener("click", myFunction2, true);
 document.getElementById("radio-3").addEventListener("click", myFunction3, true);
 
-function myFunction1(){
+function myFunction1() {
   document.querySelector(".glider").style.backgroundColor = "#df3e3e";
   document.querySelector(".submit-btn").style.backgroundColor = "#df3e3e";
-
 }
-function myFunction2(){
+function myFunction2() {
   document.querySelector(".glider").style.backgroundColor = "#a8adb3";
   document.querySelector(".submit-btn").style.backgroundColor = "#a8adb3";
-
 }
-function myFunction3(){
-  document.querySelector(".glider").style.backgroundColor = "rgba(34, 200, 206, 0.7)";
-  document.querySelector(".submit-btn").style.backgroundColor = "rgba(34, 200, 206, 0.7)";
-
+function myFunction3() {
+  document.querySelector(".glider").style.backgroundColor =
+    "rgba(34, 200, 206, 0.7)";
+  document.querySelector(".submit-btn").style.backgroundColor =
+    "rgba(34, 200, 206, 0.7)";
 }
