@@ -1,5 +1,5 @@
 from django.contrib import admin
-from website.models import Destination, Comment, Destination_User, Invoice, Transportation, Corporation, City, Country  
+from website.models import Destination, Comment, Destination_User, Invoice, Transportation, Corporation, City, Country, NationalCodes
 # Register your models here.
 # @admin.register(Post)
 class DestinationAdmin(admin.ModelAdmin):
@@ -23,6 +23,12 @@ class CommentAdmin(admin.ModelAdmin):
     list_display = ('id', 'title', 'ref_id' , 'created_date')
     ordering = ['created_date']
 
+class NationalCodesAdmin(admin.ModelAdmin):
+    date_hierarchy = 'created_date'
+    empty_value_display = '-empty-'
+    list_display = ('invoice_id', 'national_code')
+    list_filter = ('invoice_id', )
+
 
 
 admin.site.register(Destination, DestinationAdmin)
@@ -33,5 +39,7 @@ admin.site.register(Transportation, DesignAdmin)
 admin.site.register(Corporation, DesignAdmin)
 admin.site.register(City, DesignAdmin)
 admin.site.register(Country, DesignAdmin)
+admin.site.register(NationalCodes, NationalCodesAdmin)
+
 
 

@@ -109,52 +109,42 @@
         </div>
 
 
-        <form class="ticket-form" action="#" method="post">
+        <form class="ticket-form" action="{% url 'website:ticket' dest.id %}" method="post">
+            {% csrf_token %}
             <div class="div-fname inp-div">
                 <label class="lbl-fname lbl" id="lbl1" for="fname">First Name</label>
-                <input class="inp-fname inp" onclick="applyTranform1()" type="text" id="fname">
+                <input name="first_name" class="inp-fname inp" onclick="applyTranform1()" type="text" id="fname">
             </div>
-
-
 
             <div class="div-lname inp-div">
 
                 <label class="lbl-lname lbl" id="lbl2" for="lname">Last Name</label>
-                <input class="inp-lname inp" onclick="applyTranform2()" type="text" id="lname">
+                <input name="last_name" class="inp-lname inp" onclick="applyTranform2()" type="text" id="lname">
             </div>
-
-
-
-
 
             <div class="div-origin inp-div">
 
                 <label class="lbl-origin lbl" id="lbl3" for="origin">Origin</label>
-                <input class="inp-origin inp" onclick="applyTranform3()" type="text" id="origin">
+                <input name="origin_name" class="inp-origin inp" onclick="applyTranform3()" type="text" id="origin">
             </div>
-
-
 
             <div class="div-phone inp-div">
 
                 <label class="lbl-phone lbl" id="lbl4" for="phone">Phone</label>
-                <input class="inp-phone inp" onclick="applyTranform4()" type="phone" id="phone">
+                <input name="phone" class="inp-phone inp" onclick="applyTranform4()" type="phone" id="phone">
             </div>
-
-
-
 
             <div class="div-date inp-div">
 
                 <label class="lbl-date lbl" id="lbl5" for="date">Date</label>
-                <input class="inp-date inp" onclick="applyTranform5()" type="date" id="date">
+                <input name="date" class="inp-date inp" onclick="applyTranform5()" type="date" id="date">
 
             </div>
 
             <div class="count-national-code">
                 <div class="inp-div">
                     <label class="lbl-count lbl" id="lbl6" for="count">Count</label>
-                    <input class="inp-mellicode inp" onclick="applyTranform6()" min="0" type="number" id="count">
+                    <input name="count_ncode" class="inp-mellicode inp" onclick="applyTranform6()" min="0" type="number" id="count">
                 </div>
 
                 <div class="div-btn-count">
@@ -165,13 +155,6 @@
             <section class="container-count" id="container_count">
 
             </section>
-
-
-
-
-
-
-
 
             <div class="div-btn">
                 <button class="submit-btn" type="submit">book a ticket</button>

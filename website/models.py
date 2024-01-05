@@ -94,8 +94,7 @@ class Destination(models.Model):
 
 class Invoice(models.Model):
     date_origin = models.DateTimeField()
-    date_destination = models.DateTimeField()
-    seat = models.CharField(max_length=255)
+    count = models.IntegerField(null=False, default=1)
 
     city_id = models.ForeignKey(City, on_delete=models.SET_NULL, null=True) # Foreign key
     user_id = models.ForeignKey(User, on_delete=models.SET_NULL, null=True) # Foreign key
@@ -108,7 +107,23 @@ class Invoice(models.Model):
         ordering = ['created_date']
 
     def __str__(self):
-        return 'factor ' + self.id
+        return 'factor ' + str(self.id)
+
+
+
+class NationalCodes(models.Model):
+    national_code = models.CharField(max_length=255, null=True)
+    seat = models.CharField(max_length=255, null=True)
+
+    invoice_id = models.ForeignKey(Invoice, on_delete=models.SET_NULL, null=True) # Foreign key
+    created_date = models.DateTimeField(auto_now_add=True)
+    updated_date = models.DateTimeField(auto_now=True)
+    class Meta: # generally
+        ordering = ['created_date']
+
+    def __str__(self):
+        return 'national code ' + str(self.id)
+
 
 
 
