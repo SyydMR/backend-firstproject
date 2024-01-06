@@ -41,8 +41,6 @@ def panel_view(request):
 def questions_view(request):
     return render(request, 'questions.html')
 
-def signup_view(request):
-    return render(request, 'signup.html')
 
 def ticket_view(request, pid):
     
@@ -95,12 +93,6 @@ def ticket_view(request, pid):
 
 
 
-
-
-
-
-def login_view(request):
-    return render(request, 'login.html')
 
 
 

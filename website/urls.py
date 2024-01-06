@@ -10,7 +10,5 @@ urlpatterns = [
     path('factor', factor_view, name="factor"),
     path('panel', panel_view, name="panel"),
     path('questions', questions_view, name="questions"),
-    path('signup', signup_view, name="signup"),
     path('ticket/<int:pid>', ticket_view, name="ticket"),
-    path('login', login_view, name="login"),
 ]

@@ -1,6 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import User
-# Create your models here.
+from accounts.models import CustomUser
 
 
 class Country(models.Model):
@@ -97,7 +96,7 @@ class Invoice(models.Model):
     count = models.IntegerField(null=False, default=1)
 
     city_id = models.ForeignKey(City, on_delete=models.SET_NULL, null=True) # Foreign key
-    user_id = models.ForeignKey(User, on_delete=models.SET_NULL, null=True) # Foreign key
+    user_id = models.ForeignKey(CustomUser, on_delete=models.SET_NULL, null=True) # Foreign key
     transportation_id = models.ForeignKey(Transportation, on_delete=models.SET_NULL, null=True) # Foreign key
     destination_id = models.ForeignKey(Destination, on_delete=models.SET_NULL, null=True) # Foreign key
 
@@ -137,7 +136,7 @@ class NationalCodes(models.Model):
 
 
 class Destination_User(models.Model):
-    user_id = models.ForeignKey(User, on_delete=models.SET_NULL, null=True) # Foreign key
+    user_id = models.ForeignKey(CustomUser, on_delete=models.SET_NULL, null=True) # Foreign key
     destination_id = models.ForeignKey(Destination, on_delete=models.SET_NULL, null=True) # Foreign key
 
     created_date = models.DateTimeField(auto_now_add=True)
@@ -162,7 +161,7 @@ class Comment(models.Model):
     message = models.TextField()
     title = models.CharField(max_length=255)
     ref_id = models.IntegerField(default=0) # Foreign key
-    user_id = models.ForeignKey(User, on_delete=models.SET_NULL, null=True) # Foreign key
+    user_id = models.ForeignKey(CustomUser, on_delete=models.SET_NULL, null=True) # Foreign key
 
     created_date = models.DateTimeField(auto_now_add=True)
     updated_date = models.DateTimeField(auto_now=True)
