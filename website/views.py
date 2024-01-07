@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404
+from django.contrib.auth.decorators import login_required
 
 from website.models import Destination
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
@@ -37,6 +38,8 @@ def factor_view(request):
 
 def panel_view(request):
     return render(request, 'panel.html')
+
+@login_required
 
 def questions_view(request):
     return render(request, 'questions.html')

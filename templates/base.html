@@ -22,12 +22,21 @@
 
         <div class="header">
             <div class="sign-log">
-                <a class="header-btn signin-btn" href="{% url 'accounts:signup' %}">
-                    sign in
-                </a>
-                <a class="header-btn login-btn" href="{% url 'accounts:login' %}">
-                    login
-                </a>
+                {% if request.user.is_authenticated %}
+                    <p class="logged" href="{% url 'accounts:signup' %}">
+                    {{request.user.first_name}} {{request.user.last_name}}
+                    </p>
+                    <a class="header-btn logout-btn" href="{% url 'accounts:logout' %}">
+                        logout
+                    </a>
+                {% else %}
+                    <a class="header-btn signin-btn" href="{% url 'accounts:signup' %}">
+                        sign in
+                    </a>
+                    <a class="header-btn login-btn" href="{% url 'accounts:login' %}">
+                        login
+                    </a>
+                {% endif %}
             </div>
             <ul class="menu">
                 <li class="menu-item"><a class="menu-btn" href="{% url 'website:home' %}">Home</a></li>

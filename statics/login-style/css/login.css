@@ -7,7 +7,6 @@
   font-size: 17px;
   flex: 4;
   z-index: 1;
-  direction: rtl;
   font-family: "koodak";
   margin: 150px 0;
 }
@@ -209,7 +208,12 @@ input[type="radio"] {
   background-color: var(--secondary-color);
   transition: 0.15s ease-in;
 }
-
+.login > label {
+  font-size: 17px;
+  font-family: 'Nunito';
+  font-weight: 700;
+  margin-bottom: 6px;
+}
 input[type="radio"]:checked + label {
   color: var(--primary-color);
 }
@@ -224,7 +228,7 @@ input[id="radio-1"]:checked ~ .glider {
 }
 
 input[id="radio-2"]:checked ~ .glider {
-  transform: translate(-100%);
+  transform: translate(100%);
 }
 .glider {
   position: absolute;
@@ -242,4 +246,11 @@ input[id="radio-2"]:checked ~ .glider {
 .login-boxes{
   display: flex;
   flex-direction: row;
+}
+.new-acc > p {
+  margin-right: 6px;
+}
+.new-acc {
+  display: flex;
+  align-items: center;
 }

@@ -38,6 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'website.apps.WebsiteConfig',
+    'django.contrib.sitemaps',
+    'django.contrib.humanize',
+
+
     'accounts',
 ]
 AUTH_USER_MODEL = 'accounts.CustomUser'
@@ -51,6 +55,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+LOGIN_URL = 'accounts/login'
 
 ROOT_URLCONF = 'mysite.urls'
 import os 

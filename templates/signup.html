@@ -5,7 +5,7 @@
 {% block define_style %}
 <link rel="stylesheet" href="{% static 'signup-style/css/signup.css' %}">
 <link rel="stylesheet" href="{% static 'signup-style/css/media-queries.css' %}">
-<title>Panel</title>
+<title>SignUp</title>
 {% endblock %}
 
 
@@ -20,33 +20,36 @@
 
 
 
-        <form action="#" method="post" class="signup">
-            
-            <label class="phone-lbl" for="phone_id">تلفن همراه: </label>
-            <input class="log-inp phone" type="tel" id="phone_id">
-
-            <label class="username-lbl" for="username_id">نام کاربری: </label>
+        <form action="{% url 'accounts:signup' %}" method="post" class="signup">
+            {% csrf_token %}
+            <label class="username-lbl" for="username_id">Username: *</label>
             <input class="log-inp username" type="text" id="username_id">
 
-            <label class="password-lbl" for="pass_id">پسورد: </label>
-            <input class="log-inp pass" type="password" id="pass_id">
+            <input type="checkbox" onclick="myFunction1()">
+            <label class="password-lbl" for="password1">Password: *</label>
+            <input class="log-inp pass" type="password" id="password1" name="password1">
 
-            <label class="password-lbl" for="pass_id">پسورد مجدد: </label>
-            <input class="log-inp pass" type="password" id="pass_id">
+            <input type="checkbox" onclick="myFunction2()">
+            <label class="password-lbl" for="password2">Confirm password: *</label>
+            <input class="log-inp pass" type="password" id="password2" name="password2">
 
-
-
-
-
-
-
+            <label class="phone-lbl" for="phone_id">Phone number: (optional)</label>
+            <input class="log-inp phone" type="tel" id="phone_id">
 
 
 
 
 
 
-            <input class="log-inp submit" type="submit" text="salam" value="submit">
+
+
+            <input class="log-inp submit" type="submit" value="submit">
+
+            {% if messages %}
+            {% for msg in messages %}
+            <p>{{msg}}</p>
+            {% endfor %}
+            {% endif %}
         </form>
 
 
@@ -62,15 +65,14 @@
 
 
         <div class="line-under-input"></div>
-        <a href="#">رمز عبور خود را فراموش کرده اید؟</a>
         <div class="new-acc">
-            <p>حساب کاربری ندارید ؟</p>
+            <p>Do you have an account?</p>
             <div class="container-tab">
                 <div class="tabs">
-                    <input type="radio" id="radio-1" name="tabs" checked/>
-                    <label class="tab" for="radio-1">ثبت نام</label>
-                    <input type="radio" id="radio-2" name="tabs"  onclick="change_loc('../login/login.html')"/>
-                    <label class="tab" for="radio-2">ورود</label>
+                    <input type="radio" id="radio-1" name="tabs" checked />
+                    <label class="tab" for="radio-1">register</label>
+                    <input type="radio" id="radio-2" name="tabs" onclick="change_loc('../login/login.html')" />
+                    <label class="tab" for="radio-2">login</label>
                     <span class="glider"></span>
                 </div>
             </div>

@@ -24,7 +24,12 @@
   display: flex;
   flex-direction: column;
 }
-
+.signup > label {
+  font-size: 17px;
+  font-family: 'Nunito';
+  font-weight: 700;
+  margin-bottom: 6px;
+}
 .log-inp {
   margin: 0 auto;
   font-size: 17px;
@@ -220,7 +225,7 @@ input[id="radio-1"]:checked ~ .glider {
 }
 
 input[id="radio-2"]:checked ~ .glider {
-  transform: translate(-100%);
+  transform: translate(100%);
 }
 .glider {
   position: absolute;
@@ -238,4 +243,11 @@ input[id="radio-2"]:checked ~ .glider {
 .signup-boxes{
   display: flex;
   flex-direction: row;
+}
+.new-acc > p {
+  margin-right: 6px;
+}
+.new-acc {
+  display: flex;
+  align-items: center;
 }
