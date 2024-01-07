@@ -20,26 +20,31 @@
 
 
 
-        <form action="{% url 'accounts:signup' %}" method="post" class="signup">
+        <form autocomplete="off" action="{% url 'accounts:signup' %}" method="post" class="signup">
             {% csrf_token %}
-            <label class="username-lbl" for="username_id">Username: *</label>
-            <input class="log-inp username" type="text" id="username_id">
+            <label class="username-lbl" for="first_name_id">your Name: (optional)</label>
+            <input autocomplete="false" class="log-inp username" type="text" id="first_name_id" name="first_name">
 
-            <input type="checkbox" onclick="myFunction1()">
-            <label class="password-lbl" for="password1">Password: *</label>
-            <input class="log-inp pass" type="password" id="password1" name="password1">
+            <label class="username-lbl" for="last_name_id">your Last name: (optional)</label>
+            <input autocomplete="false" class="log-inp username" type="text" id="last_name_id" name="last_name">
 
-            <input type="checkbox" onclick="myFunction2()">
-            <label class="password-lbl" for="password2">Confirm password: *</label>
-            <input class="log-inp pass" type="password" id="password2" name="password2">
+            <label class="username-lbl" for="username_id">Username: </label>
+            <input class="log-inp username" type="text" id="username_id" name="username" value="">
 
-            <label class="phone-lbl" for="phone_id">Phone number: (optional)</label>
-            <input class="log-inp phone" type="tel" id="phone_id">
+            <label class="password-lbl" for="password1">Password: </label>
+            <input autocomplete="false" class="log-inp pass" type="password" id="password1" name="password1" value="">
 
 
+            <label class="password-lbl" for="password2">Confirm password: </label>
+            <input class="log-inp pass" type="password" id="password2" name="password2" value="">
 
 
+            <label class="phone-lbl" for="phone_id">Phone number: </label>
+            <input class="log-inp phone" type="tel" id="phone_id" name="phone">
 
+
+            <label class="phone-lbl" for="NationalCode">National Code: </label>
+            <input class="log-inp phone" type="text" id="NationalCode" name="national_code">
 
 
 
@@ -86,7 +91,7 @@
 
 {% endblock %}
 
-
+<!-- 
 {% block add_js%}
 <script src="{% static 'signup-style/js/app.js' %}"></script>
-{% endblock%}
+{% endblock%} -->

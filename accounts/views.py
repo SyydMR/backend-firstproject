@@ -37,21 +37,26 @@ def logout_view(request):
     return redirect('/home')
 
 
+
 def signup_view(request):
     if request.method == 'POST':
         form = CustomUserCreationForm(request.POST)
-        form.save()
-        return reverse('accounts:login')
+        print(request.POST)
+        if form.is_valid():
+            user = form.save(commit=False)
+            user.set_password(form.cleaned_data['password1'])
+            user.save()
+            messages.success(request, "Signed up successfully!")
+            return redirect('accounts:login')
+        else:
+            for field, errors in form.errors.items():
+                for error in errors:
+                    messages.error(request, f"{field.capitalize()}: {error}")
+    
+    else:
+        form = CustomUserCreationForm()
 
-            
-
-
-
-
-    form = CustomUserCreationForm()
-    context = {'form':form}
+    context = {'form': form}
     return render(request, 'signup.html', context)
-
-
 
 

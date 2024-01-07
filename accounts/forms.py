@@ -1,14 +1,16 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
-from .models import CustomUser
+from accounts.models import User
 
 class CustomUserCreationForm(UserCreationForm):
-    profile_pic = forms.ImageField()
-    phone = forms.CharField(max_length=30)
-    national_code = forms.CharField(max_length=10)
-
+    # profile_pic = forms.ImageField()
+    first_name = forms.CharField(max_length=30, required=False)
+    last_name = forms.CharField(max_length=30, required=False)
+    phone = forms.CharField(max_length=30, required=False)
+    national_code = forms.CharField(max_length=10, required=False)
     class Meta(UserCreationForm.Meta):
-        model = CustomUser
+        model = User
         fields = UserCreationForm.Meta.fields
+
     
 

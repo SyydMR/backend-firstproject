@@ -1,5 +1,5 @@
 from django.contrib import admin
-from accounts.models import CustomUser
+from accounts.models import User
 # Register your models here.
 # @admin.register(Post)
 class UserAdmin(admin.ModelAdmin):
@@ -10,4 +10,4 @@ class UserAdmin(admin.ModelAdmin):
     # ordering = ['created_date']
     # or ordering = ['-created_date']
 
-admin.site.register(CustomUser, UserAdmin)
+admin.site.register(User, UserAdmin)
