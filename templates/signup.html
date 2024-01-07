@@ -20,23 +20,23 @@
 
 
 
-        <form autocomplete="off" action="{% url 'accounts:signup' %}" method="post" class="signup">
+        <form action="{% url 'accounts:signup' %}" method="post" class="signup">
             {% csrf_token %}
-            <label class="username-lbl" for="first_name_id">your Name: (optional)</label>
-            <input autocomplete="false" class="log-inp username" type="text" id="first_name_id" name="first_name">
+            <label class="username-lbl" for="first_name_id">your Name: </label>
+            <input class="log-inp username" type="text" id="first_name_id" name="first_name">
 
-            <label class="username-lbl" for="last_name_id">your Last name: (optional)</label>
-            <input autocomplete="false" class="log-inp username" type="text" id="last_name_id" name="last_name">
+            <label class="username-lbl" for="last_name_id">your Last name: </label>
+            <input class="log-inp username" type="text" id="last_name_id" name="last_name">
 
             <label class="username-lbl" for="username_id">Username: </label>
-            <input class="log-inp username" type="text" id="username_id" name="username" value="">
+            <input class="log-inp username" type="text" id="username_id" name="username">
 
             <label class="password-lbl" for="password1">Password: </label>
-            <input autocomplete="false" class="log-inp pass" type="password" id="password1" name="password1" value="">
+            <input class="log-inp pass" type="password" id="password1" name="password1">
 
 
             <label class="password-lbl" for="password2">Confirm password: </label>
-            <input class="log-inp pass" type="password" id="password2" name="password2" value="">
+            <input class="log-inp pass" type="password" id="password2" name="password2">
 
 
             <label class="phone-lbl" for="phone_id">Phone number: </label>

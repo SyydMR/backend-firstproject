@@ -45,6 +45,10 @@ def signup_view(request):
         if form.is_valid():
             user = form.save(commit=False)
             user.set_password(form.cleaned_data['password1'])
+            user.first_name = request.POST["first_name"]
+            user.last_name = request.POST["last_name"]
+            
+
             user.save()
             messages.success(request, "Signed up successfully!")
             return redirect('accounts:login')
