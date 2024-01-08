@@ -9,19 +9,28 @@ from django.contrib import messages
 def login_view(request):
     if not request.user.is_authenticated:
         if request.method == 'POST':
+            next = request.POST.get('next')
             form = AuthenticationForm(request=request, data=request.POST)
             if form.is_valid():
                 username = form.cleaned_data.get('username')
                 password = form.cleaned_data.get('password')
 
                 user = authenticate(request, username=username, password=password)
+                print(user is None)
                 if user is not None:
                     login(request, user)
-                    return redirect(reverse('website:home'))
-
+                    messages.success(request, f"Logged in successfully as {user.username}!")
+                    return redirect(next)
+            else:
+                messages.error(request, "Wrong credentials!")
+                return redirect(reverse('accounts:login'))
 
         form = AuthenticationForm()
-        context = {'form':form}
+        if request.GET.get('next'):
+            next = request.GET.get('next')
+        else:
+            next = reverse('accounts:login')
+        context = {'form':form, 'next':next}
         return render(request, 'login.html', context)
     else:
         return redirect('/home')
@@ -39,28 +48,31 @@ def logout_view(request):
 
 
 def signup_view(request):
-    if request.method == 'POST':
-        form = CustomUserCreationForm(request.POST)
-        print(request.POST)
-        if form.is_valid():
-            user = form.save(commit=False)
-            user.set_password(form.cleaned_data['password1'])
-            user.first_name = request.POST["first_name"]
-            user.last_name = request.POST["last_name"]
-            
+    if not request.user.is_authenticated:
+        if request.method == 'POST':
+            form = CustomUserCreationForm(request.POST)
 
-            user.save()
-            messages.success(request, "Signed up successfully!")
-            return redirect('accounts:login')
-        else:
-            for field, errors in form.errors.items():
-                for error in errors:
-                    messages.error(request, f"{field.capitalize()}: {error}")
+            if form.is_valid():
+                user = form.save(commit=False)
+                user.set_password(form.cleaned_data['password1'])
+                user.first_name = request.POST["first_name"]
+                user.last_name = request.POST["last_name"]
+                user.national_code = request.POST["national_code"]
+                user.phone = request.POST["phone"]
+                user.save()
+                login(request, user)
+                messages.success(request, "Signed up successfully!")
+                return redirect('/home')
+            else:
+                for field, errors in form.errors.items():
+                    for error in errors:
+                        messages.error(request, f"{field.capitalize()}: {error}")
+                        return redirect(reverse('accounts:signup'))
+
+        form = CustomUserCreationForm()
+        context = {'form': form}
+        return render(request, 'signup.html', context)
     
     else:
-        form = CustomUserCreationForm()
-
-    context = {'form': form}
-    return render(request, 'signup.html', context)
-
+        return redirect('/home')
 

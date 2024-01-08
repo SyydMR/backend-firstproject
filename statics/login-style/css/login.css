@@ -7,7 +7,7 @@
   font-size: 17px;
   flex: 4;
   z-index: 1;
-  font-family: "koodak";
+  font-family: "Nunito";
   margin: 150px 0;
 }
 .login-text {
@@ -48,7 +48,7 @@
   font-size: 15px;
 }
 .submit {
-  font-family: "koodak";
+  font-family: "Nunito";
   padding: 5px 106px;
   border: none;
   background-color: var(--lightBlue);

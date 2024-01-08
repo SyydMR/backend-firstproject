@@ -36,11 +36,11 @@ def aboutus_view(request):
 def factor_view(request):
     return render(request, 'factor.html')
 
+@login_required
 def panel_view(request):
     return render(request, 'panel.html')
 
 @login_required
-
 def questions_view(request):
     return render(request, 'questions.html')
 

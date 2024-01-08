@@ -5,6 +5,7 @@
 {% block define_style %}
 <link rel="stylesheet" href="{% static 'signup-style/css/signup.css' %}">
 <link rel="stylesheet" href="{% static 'signup-style/css/media-queries.css' %}">
+
 <title>SignUp</title>
 {% endblock %}
 
@@ -17,8 +18,6 @@
     <h1 class="signup-text">Sign<span class="up-in-signup">up</span></h1>
     <div class="line-under-signup"></div>
     <div class="signup-box">
-
-
 
         <form action="{% url 'accounts:signup' %}" method="post" class="signup">
             {% csrf_token %}
@@ -50,11 +49,6 @@
 
             <input class="log-inp submit" type="submit" value="submit">
 
-            {% if messages %}
-            {% for msg in messages %}
-            <p>{{msg}}</p>
-            {% endfor %}
-            {% endif %}
         </form>
 
 
@@ -91,7 +85,7 @@
 
 {% endblock %}
 
-<!-- 
+
 {% block add_js%}
 <script src="{% static 'signup-style/js/app.js' %}"></script>
-{% endblock%} -->
+{% endblock%}

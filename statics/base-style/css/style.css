@@ -322,7 +322,7 @@ a {
   background-color: var(--darkBlue);
   color: white;
 }
-.logged{
+.logged {
   border: none;
   outline: none;
   border-radius: 5px;
@@ -332,18 +332,36 @@ a {
   font-family: "Nunito";
   margin-right: 10px;
 }
-.logout-btn{
+.logout-btn {
   border: 0.3px solid #dfdfdf;
   transition: 0.3s all ease;
 }
-.logout-btn:hover{
+.logout-btn:hover {
   border: 0.3px solid var(--darkBlue);
 }
-.logout-btn:active{
+.logout-btn:active {
   background-color: var(--darkBlue);
   color: #fff;
 }
-.sign-log{
+.sign-log {
   display: flex;
   align-items: center;
+}
+
+/* messages */
+
+
+.success {
+  padding: 10px;
+  border-radius: 4px;
+  background-color: #51ff447e;
+  font-size: 16px;
+
+}
+
+.error {
+  padding: 10px;
+  border-radius: 4px;
+  background-color: #ff44447e;
+  font-size: 16px;
 }

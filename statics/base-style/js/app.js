@@ -12,3 +12,13 @@ function showList() {
 function showField() {
   searchField.classList.toggle("show");
 }
+setInterval(functionName, 1000);
+function functionName(){
+  setTimeout(function() {
+    $('#message_container').fadeOut('fast');
+  }, 2000);
+}
+
+function removeMessage() {
+    $('#message_container').fadeOut('fast');
+}
