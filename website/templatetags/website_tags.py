@@ -1,4 +1,5 @@
 from django import template
+from website.models import Comment
 
 register = template.Library()
 
@@ -9,3 +10,8 @@ def split_dash(value):
 @register.filter(name='upper_letter')
 def upper_letter(value):
     return str(value).upper()
+
+@register.simple_tag(name='get_replies')
+def get_replies(comment):
+    reps = Comment.objects.filter(ref_id=comment.id)
+    return reps

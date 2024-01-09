@@ -1,33 +1,52 @@
 {% extends "base.html" %}
 {% load static %}
+{% load website_tags %}
 
 
 {% block define_style %}
 <link rel="stylesheet" href="{% static 'questions-style/css/questions.css' %}">
 <link rel="stylesheet" href="{% static 'questions-style/css/media-queries.css' %}">
-<title>Panel</title>
+<title>Questions</title>
 {% endblock %}
 
 
 {% block content %}
 
 
+
 <div class="ques-box">
     <h2>Frequently Asked Questions</h2>
     <p>Lorem ipsum dolor sit amet consectetur. Et dolor pretium convallis gravida natoque maecenas. Pulvinar
         orci diam massa vel molestie non et.</p>
+
+
+
+
+
     <div class="comments">
         <div class="any-comment">
+            {% for comment in comments %}
+
+
+
+            {% if comment.ref_id == none %}
             <div class="comment-origin">
                 <div class="comment-text">
-                    <p class="first-name">Pouria</p>
-                    <p class="comment-discrption">
-                        Lorem ipsum dolor sit amet consectetur. In turpis amet iaculis id diam. Auctor tellus
-                        egestas nulla risus mi commodo pharetra lacus?
-                    </p>
+                    <div>
+                        <p class="first-name">{{comment.title}}</p>
+                        <p class="comment-discrption">
+                            {{comment.message}}
+                        </p>
+
+                    </div>
+
                     <div class="options-comment">
-                        <form class="reply" action="#">
-                            <input type="text" placeholder="Reply text...">
+                        <form action="{% url 'website:questions' %}" method="post" class="reply">
+                            {% csrf_token %}
+                            <input type="hidden" name="user_id" value="{{request.user.id}}">
+                            <input type="hidden" name="ref_id" value="{{comment.id}}">
+                            <input type="text" name="message" placeholder="Reply text...">
+                            <input type="hidden" name="title" value="Reply to {{comment.title}}">
                             <input type="submit" value="Comment">
                         </form>
                         <button class="see-more-comment">
@@ -37,6 +56,7 @@
 
 
                 </div>
+
                 <div class="last-part-comment">
                     <div class="comment-line-between">
                         <div class="white-circle w-circle-1"></div>
@@ -51,21 +71,22 @@
                         <div class="cir3 circle"></div>
 
                         <img src="{% static 'questions-style/img/poori.jpg' %}" alt="">
-                        <p class="last-name">Ostowar</p>
+                        <p class="last-name">{{comment.user_id.username}}</p>
                     </div>
 
                 </div>
 
 
             </div>
+            {% endif %}
 
-
+            {% get_replies comment as var %}
+            {% for rep in var %}
             <section class="sub-comment">
                 <div class="comment-text">
-                    <p class="first-name">Pouria</p>
+                    <p class="first-name">{{rep.title}}</p>
                     <p class="comment-discrption">
-                        Lorem ipsum dolor sit amet consectetur. In turpis amet iaculis id diam. Auctor tellus
-                        egestas nulla risus mi commodo pharetra lacus?
+                        {{rep.message}}
                     </p>
                 </div>
                 <div class="last-part-comment">
@@ -82,223 +103,22 @@
                         <div class="cir3 circle"></div>
 
                         <img src="{% static 'questions-style/img/poori.jpg' %}" alt="">
-                        <p class="last-name">Ostowar</p>
+                        <p class="last-name">{{rep.user_id.username}}</p>
                     </div>
 
                 </div>
 
             </section>
 
+            {% endfor %}
 
 
-            <section class="sub-comment">
-                <div class="comment-text">
-                    <p class="first-name">Pouria</p>
-                    <p class="comment-discrption">
-                        Lorem ipsum dolor sit amet consectetur. In turpis amet iaculis id diam. Auctor tellus
-                        egestas nulla risus mi commodo pharetra lacus?
-                    </p>
-                </div>
-                <div class="last-part-comment">
-                    <div class="comment-line-between">
-                        <div class="white-circle w-circle-1-sub"></div>
-                        <div class="line-between"></div>
-                        <div class="white-circle w-circle-2-sub"></div>
-                    </div>
-                    <div class="comment-img-info">
+            {% empty %}
 
 
-                        <div class="cir1 circle"></div>
-                        <div class="cir2 circle"></div>
-                        <div class="cir3 circle"></div>
-
-                        <img src="{% static 'questions-style/img/poori.jpg' %}" alt="">
-                        <p class="last-name">Ostowar</p>
-                    </div>
-
-                </div>
-
-            </section>
-
-
-
-            <section class="sub-comment">
-                <div class="comment-text">
-                    <p class="first-name">Pouria</p>
-                    <p class="comment-discrption">
-                        Lorem ipsum dolor sit amet consectetur. In turpis amet iaculis id diam. Auctor tellus
-                        egestas nulla risus mi commodo pharetra lacus?
-                    </p>
-                </div>
-                <div class="last-part-comment">
-                    <div class="comment-line-between">
-                        <div class="white-circle w-circle-1-sub"></div>
-                        <div class="line-between"></div>
-                        <div class="white-circle w-circle-2-sub"></div>
-                    </div>
-                    <div class="comment-img-info">
-
-
-                        <div class="cir1 circle"></div>
-                        <div class="cir2 circle"></div>
-                        <div class="cir3 circle"></div>
-
-                        <img src="{% static 'questions-style/img/poori.jpg' %}" alt="">
-                        <p class="last-name">Ostowar</p>
-                    </div>
-
-                </div>
-
-            </section>
-
-
-            <section class="sub-comment">
-                <div class="comment-text">
-                    <p class="first-name">Pouria</p>
-                    <p class="comment-discrption">
-                        Lorem ipsum dolor sit amet consectetur. In turpis amet iaculis id diam. Auctor tellus
-                        egestas nulla risus mi commodo pharetra lacus?
-                    </p>
-                </div>
-                <div class="last-part-comment">
-                    <div class="comment-line-between">
-                        <div class="white-circle w-circle-1-sub"></div>
-                        <div class="line-between"></div>
-                        <div class="white-circle w-circle-2-sub"></div>
-                    </div>
-                    <div class="comment-img-info">
-
-
-                        <div class="cir1 circle"></div>
-                        <div class="cir2 circle"></div>
-                        <div class="cir3 circle"></div>
-
-                        <img src="{% static 'questions-style/img/poori.jpg' %}" alt="">
-                        <p class="last-name">Ostowar</p>
-                    </div>
-
-                </div>
-
-            </section>
-
+            {% endfor %}
 
         </div>
-
-
-
-        <div class="any-comment">
-            <div class="comment-origin">
-                <div class="comment-text">
-                    <p class="first-name">Pouria</p>
-                    <p class="comment-discrption">
-                        Lorem ipsum dolor sit amet consectetur. In turpis amet iaculis id diam. Auctor tellus
-                        egestas nulla risus mi commodo pharetra lacus?
-                    </p>
-                    <div class="options-comment">
-                        <form class="reply" action="#">
-                            <input type="text" placeholder="Reply text...">
-                            <input type="submit" value="Comment">
-                        </form>
-                        <button class="see-more-comment">
-                            More
-                        </button>
-                    </div>
-
-
-                </div>
-                <div class="last-part-comment">
-                    <div class="comment-line-between">
-                        <div class="white-circle w-circle-1"></div>
-                        <div class="line-between"></div>
-                        <div class="white-circle w-circle-2"></div>
-                    </div>
-                    <div class="comment-img-info">
-
-
-                        <div class="cir1 circle"></div>
-                        <div class="cir2 circle"></div>
-                        <div class="cir3 circle"></div>
-
-                        <img src="{% static 'questions-style/img/poori.jpg' %}" alt="">
-                        <p class="last-name">Ostowar</p>
-                    </div>
-
-                </div>
-
-
-            </div>
-
-
-            <section class="sub-comment">
-                <div class="comment-text">
-                    <p class="first-name">Pouria</p>
-                    <p class="comment-discrption">
-                        Lorem ipsum dolor sit amet consectetur. In turpis amet iaculis id diam. Auctor tellus
-                        egestas nulla risus mi commodo pharetra lacus?
-                    </p>
-                </div>
-                <div class="last-part-comment">
-                    <div class="comment-line-between">
-                        <div class="white-circle w-circle-1-sub"></div>
-                        <div class="line-between"></div>
-                        <div class="white-circle w-circle-2-sub"></div>
-                    </div>
-                    <div class="comment-img-info">
-
-
-                        <div class="cir1 circle"></div>
-                        <div class="cir2 circle"></div>
-                        <div class="cir3 circle"></div>
-
-                        <img src="{% static 'questions-style/img/poori.jpg' %}" alt="">
-                        <p class="last-name">Ostowar</p>
-                    </div>
-
-                </div>
-
-            </section>
-
-
-
-            <section class="sub-comment">
-                <div class="comment-text">
-                    <p class="first-name">Pouria</p>
-                    <p class="comment-discrption">
-                        Lorem ipsum dolor sit amet consectetur. In turpis amet iaculis id diam. Auctor tellus
-                        egestas nulla risus mi commodo pharetra lacus?
-                    </p>
-                </div>
-                <div class="last-part-comment">
-                    <div class="comment-line-between">
-                        <div class="white-circle w-circle-1-sub"></div>
-                        <div class="line-between"></div>
-                        <div class="white-circle w-circle-2-sub"></div>
-                    </div>
-                    <div class="comment-img-info">
-
-
-                        <div class="cir1 circle"></div>
-                        <div class="cir2 circle"></div>
-                        <div class="cir3 circle"></div>
-
-                        <img src="{% static 'questions-style/img/poori.jpg' %}" alt="">
-                        <p class="last-name">Ostowar</p>
-                    </div>
-
-                </div>
-
-            </section>
-
-
-
-
-
-
-        </div>
-
-
-
-
 
 
 
@@ -312,8 +132,17 @@
 
     </div>
 
-
-
+    <div class="form-container">
+        <form action="{% url 'website:questions' %}" method="post" class="comment-form">
+            {% csrf_token %}
+            <input type="hidden" name="user_id" value="{{request.user.id}}">
+            <div class="input-container">
+                <input type="text" name="title" id="title" placeholder="Title">
+                <textarea name="message" id="message" placeholder="Your message"></textarea>
+                <input type="submit" value="Submit" id="submit">
+            </div>
+        </form>
+    </div>
 
 
 

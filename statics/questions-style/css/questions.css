@@ -103,6 +103,10 @@
   padding-top: 22.17px;
   padding-left: 34.7px;
   padding-bottom: 12.42px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 .last-name {
   position: absolute;
@@ -142,6 +146,8 @@
   font-family: "Nunito";
   font-weight: 700;
   font-size: 15px;
+  outline: none;
+  border: none;
 }
 .options-comment > form > input[type="submit"] {
   padding: 9px 15px;
@@ -199,4 +205,52 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+.input-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: start;
+  direction: ltr;
+  text-align: end;
+}
+#message{
+  width: 500px;
+  height: 300px;
+  outline: none;
+  border: none;
+  border: 1px solid #d9d9d9;
+  font-weight: 500;
+  font-family: 'Nunito';
+  font-size: 13px;
+  margin: 10px 0;
+  padding-top: 10px;
+  padding-left: 10px;
+}
+#title{
+  width: 200px;
+  outline: none;
+  border: none;
+  border: 1px solid #d9d9d9;
+
+  padding: 4px 10px 4px 9px;
+  font-weight: 700;
+  font-family: 'Nunito';
+  font-size: 17px;
+}
+#submit{
+  border: none;
+  cursor: pointer;
+  outline: none;
+  background-color: #d9d9d9;
+  padding: 7px 20px;
+  font-family: 'Nunito';
+  font-size: 17px;
+  font-weight: 700;
+}
+.comment-form{
+  margin: 100px 0;
+}
+.form-container{
+  width: 1200px;
 }

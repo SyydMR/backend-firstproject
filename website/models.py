@@ -161,14 +161,15 @@ class Destination_User(models.Model):
 class Comment(models.Model):
     message = models.TextField()
     title = models.CharField(max_length=255)
-    ref_id = models.IntegerField(default=0) # Foreign key
-    user_id = models.ForeignKey(User, on_delete=models.SET_NULL, null=True) # Foreign key
+    ref_id = models.ForeignKey("self", on_delete=models.SET_NULL, null=True, blank=True, default=None) # Foreign key
+    user_id = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, default='self') # Foreign key
 
     created_date = models.DateTimeField(auto_now_add=True)
     updated_date = models.DateTimeField(auto_now=True)
+    approved = models.BooleanField(default=True)
     class Meta: # generally
         ordering = ['created_date']
 
     def __str__(self):
-        return "{} - {}".format(self.name, self.id)
+        return "{} - {}".format(self.id, self.title)
 

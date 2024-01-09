@@ -17,11 +17,6 @@ class DesignAdmin(admin.ModelAdmin):
     list_display = ('id', 'name', 'created_date')
     ordering = ['created_date']
 
-class CommentAdmin(admin.ModelAdmin):
-    date_hierarchy = 'created_date'
-    empty_value_display = '-empty-'
-    list_display = ('id', 'title', 'ref_id' , 'created_date')
-    ordering = ['created_date']
 
 class NationalCodesAdmin(admin.ModelAdmin):
     date_hierarchy = 'created_date'
@@ -29,10 +24,16 @@ class NationalCodesAdmin(admin.ModelAdmin):
     list_display = ('invoice_id', 'national_code')
     list_filter = ('invoice_id', )
 
+class CommentAdmin(admin.ModelAdmin):
+    date_hierarchy = 'created_date'
+    empty_value_display = '-empty-'
+    list_display = ('id', 'title', 'approved', 'created_date', )
+    list_filter = ('user_id', )
+    search_fields = ['title', 'message']
+
 
 
 admin.site.register(Destination, DestinationAdmin)
-admin.site.register(Comment, CommentAdmin)
 admin.site.register(Destination_User)
 admin.site.register(Invoice)
 admin.site.register(Transportation, DesignAdmin)
@@ -40,6 +41,8 @@ admin.site.register(Corporation, DesignAdmin)
 admin.site.register(City, DesignAdmin)
 admin.site.register(Country, DesignAdmin)
 admin.site.register(NationalCodes, NationalCodesAdmin)
+admin.site.register(Comment, CommentAdmin)
+
 
 
 

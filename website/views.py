@@ -1,9 +1,11 @@
 from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.decorators import login_required
-
-from website.models import Destination
+from website.models import Destination, Comment
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from website.models import Invoice, NationalCodes
+from website.forms import CommentForm
+from django.contrib import messages
+
 def home_view(request):
 
     # ------------------------------------- #
@@ -42,7 +44,19 @@ def panel_view(request):
 
 @login_required
 def questions_view(request):
-    return render(request, 'questions.html')
+
+    if request.method == 'POST':
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "your comment submited successfully !")
+        else:
+            messages.error(request, f"Something went wrong!")
+
+    comments = Comment.objects.filter(approved=True).order_by('created_date')
+    form = CommentForm()
+    context = {'comments':comments, 'form':form}
+    return render(request, 'questions.html', context)
 
 
 def ticket_view(request, pid):
