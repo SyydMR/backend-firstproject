@@ -37,14 +37,13 @@
 
     <h2>Personal</h2>
     <div class="personal-panel-box panel-box" id="personal">
-        <form action="#" method="post" class="form">
+        <form action="{% url 'website:panel' %}" method="post" class="form">
+            {% csrf_token %}
             <div class="grid-container">
                 <div class="inp-box">
                     <p>name: </p>
                     <div class="personal-inp-box form-inp">
-                        <input type="text" class="personal-input" value="{{request.user.first_name}}">
-                        
-                            
+                        <input type="text" name="first_name" class="personal-input" value="{{request.user.first_name}}">
                     </div>
                 </div>
 
@@ -53,105 +52,40 @@
                     <p>lastname: </p>
 
                     <div class="personal-inp-box form-inp">
-                        <input type="text" class="personal-input" value="{{request.user.last_name}}">
-                        
-                            
+                        <input type="text" name="last_name" class="personal-input" value="{{request.user.last_name}}">
+
+
                     </div>
                 </div>
 
                 <div class="inp-box">
                     <p>phone: </p>
                     <div class="personal-inp-box form-inp">
-                        <input type="tel" class="personal-input" value="{{request.user.phone}}">
-                        
-                            
+                        <input type="tel" name="phone" class="personal-input" value="{{request.user.phone}}">
+
+
                     </div>
                 </div>
 
                 <div class="inp-box">
                     <p>email: </p>
                     <div class="personal-inp-box form-inp">
-                        <input type="email" class="personal-input" value="{{request.user.email}}">
-                        
-                            
+                        <input type="email" name="email" class="personal-input" value="{{request.user.email}}">
+
+
                     </div>
                 </div>
 
-
-            </div>
-
-
-            <input type="submit" class="submit-personal submit-btn" value="apply change">
-
-
-        </form>
-
-
-
-
-
-
-
-
-    </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <h2>Security</h2>
-    <div class="security-panel-box  panel-box" id="personal">
-        <form action="#" method="post" class="form">
-            <div class="security-grid-container">
                 <div class="inp-box">
                     <p>username: </p>
                     <div class="personal-inp-box form-inp">
-                        <input type="text" class="personal-input" value="{{request.user.username}}">
-
-                    </div>
-                </div>
-
-
-                <div class="inp-box">
-                    <p>password: </p>
-                    <div class="personal-inp-box form-inp">
-                        <input type="password" class="personal-input" value="" name="password" id="password">
-                        <i class="bi bi-eye-slash" id="togglePassword"></i>
-
-
-                    </div>
-                </div>
-
-                <div class="inp-box">
-                    <p>confirm: </p>
-                    <div class="personal-inp-box form-inp">
-                        <input type="password" class="personal-input">
+                        <input type="text" name="username" class="personal-input" id="username" value="{{request.user.username}}">
+                        <i class="bi-eye" id="togglePassword"></i>
                     </div>
                 </div>
 
             </div>
-
-
-
-            <input type="submit" class="submit-security submit-btn" value="apply change">
+            <input type="submit" name="submit" class="submit-personal submit-btn" value="apply change">
 
 
         </form>
@@ -164,6 +98,34 @@
 
 
     </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

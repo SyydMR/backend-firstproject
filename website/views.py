@@ -1,9 +1,9 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from website.models import Destination, Comment
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from website.models import Invoice, NationalCodes
-from website.forms import CommentForm
+from website.forms import CommentForm, PanelForm
 from django.contrib import messages
 
 def home_view(request):
@@ -40,7 +40,29 @@ def factor_view(request):
 
 @login_required
 def panel_view(request):
-    return render(request, 'panel.html')
+
+    if request.method == 'POST':
+        user_form = PanelForm(request.POST, instance=request.user)
+
+        if user_form.is_valid():
+            user_form.save()
+            messages.success(request, 'Your profile is updated successfully')
+        else:
+            messages.error(request, 'Something went wrong!')
+
+    else:
+        user_form = PanelForm(instance=request.user)
+
+
+    return render(request, 'panel.html', {'user_form': user_form})
+
+
+
+
+
+
+
+
 
 @login_required
 def questions_view(request):
