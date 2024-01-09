@@ -1,6 +1,6 @@
 
 
-/* main panel */
+/* main panel */ 
 
 .panel-container {
   padding: 0 30px;
@@ -72,6 +72,7 @@
 .personal-inp-box {
   display: flex;
   flex-direction: row;
+  align-items: center;
 }
 
 .personal-btn {
@@ -290,6 +291,6 @@
   top: -2px
 }
 #togglePassword{
-  margin-left: -60px;
+  margin-left: -70px;
   font-size: 25px;
 }

@@ -43,9 +43,8 @@
                     <p>name: </p>
                     <div class="personal-inp-box form-inp">
                         <input type="text" class="personal-input" value="{{request.user.first_name}}">
-                        <button class="personal-btn">
-                            <i class="gg-pen gg-personal"></i>
-                        </button>
+                        
+                            
                     </div>
                 </div>
 
@@ -55,19 +54,17 @@
 
                     <div class="personal-inp-box form-inp">
                         <input type="text" class="personal-input" value="{{request.user.last_name}}">
-                        <button class="personal-btn">
-                            <i class="gg-pen gg-personal"></i>
-                        </button>
+                        
+                            
                     </div>
                 </div>
 
                 <div class="inp-box">
                     <p>phone: </p>
                     <div class="personal-inp-box form-inp">
-                        <input type="tel" class="personal-input" value="{{request.user.first_name}}">
-                        <button class="personal-btn">
-                            <i class="gg-pen gg-personal"></i>
-                        </button>
+                        <input type="tel" class="personal-input" value="{{request.user.phone}}">
+                        
+                            
                     </div>
                 </div>
 
@@ -75,21 +72,12 @@
                     <p>email: </p>
                     <div class="personal-inp-box form-inp">
                         <input type="email" class="personal-input" value="{{request.user.email}}">
-                        <button class="personal-btn">
-                            <i class="gg-pen gg-personal"></i>
-                        </button>
+                        
+                            
                     </div>
                 </div>
 
-                <div class="inp-box date-inp">
-                    <p>birthday: </p>
-                    <div class="personal-inp-box form-inp">
-                        <input type="date" class="personal-input">
-                        <button class="personal-btn">
-                            <i class="gg-pen gg-personal"></i>
-                        </button>
-                    </div>
-                </div>
+
             </div>
 
 
@@ -119,75 +107,6 @@
 
 
 
-    <h2>Travel</h2>
-    <div class="traveled-panel-box panel-box" id="personal">
-        <form action="#" method="post" class="form">
-            <div class="travel-grid-container">
-                <div class="inp-box item1">
-                    <p>favorite location: </p>
-                    <div class="personal-inp-box form-inp">
-                        <input type="text" class="personal-input inp-loc">
-                        <button class="travel-btn">
-                            <i class="gg-pen gg-travel"></i>
-                        </button>
-                    </div>
-                </div>
-
-
-                <div class="inp-box item2">
-                    <p>last name: </p>
-                    <div class="personal-inp-box form-inp">
-                        <input type="text" class="personal-input">
-                        <button class="travel-btn">
-                            <i class="gg-pen gg-travel"></i>
-                        </button>
-                    </div>
-                </div>
-
-                <div class="inp-box item3">
-                    <p>phone: </p>
-                    <div class="personal-inp-box form-inp">
-                        <input type="tel" class="personal-input">
-                        <button class="travel-btn">
-                            <i class="gg-pen gg-travel"></i>
-                        </button>
-                    </div>
-                </div>
-
-                <div class="inp-box item4">
-                    <p>email: </p>
-                    <div class="personal-inp-box form-inp">
-                        <input type="email" class="personal-input">
-                        <button class="travel-btn">
-                            <i class="gg-pen gg-travel"></i>
-                        </button>
-                    </div>
-                </div>
-
-            </div>
-
-
-
-            <input type="submit" class="submit-travel submit-btn" value="apply change">
-
-
-        </form>
-
-
-
-
-
-
-
-
-    </div>
-
-
-
-
-
-
-
 
 
 
@@ -206,20 +125,10 @@
                     <p>username: </p>
                     <div class="personal-inp-box form-inp">
                         <input type="text" class="personal-input" value="{{request.user.username}}">
-                        <button class="security-btn">
-                            <i class="gg-pen gg-security"></i>
-                        </button>
+
                     </div>
                 </div>
 
-
-                <!-- <div class="inp-box">
-                    <p>password: </p>
-                    <div class="personal-inp-box form-inp">
-                        <input type="password" class="personal-input" value="{{request.user.password}}" name="password" id="password">
-                    </div>
-                    <i class="bi bi-eye-slash" id="togglePassword"></i>
-                </div> -->
 
                 <div class="inp-box">
                     <p>password: </p>
@@ -227,9 +136,7 @@
                         <input type="password" class="personal-input" value="" name="password" id="password">
                         <i class="bi bi-eye-slash" id="togglePassword"></i>
 
-                        <button class="security-btn">
-                            <i class="gg-pen gg-security"></i>
-                        </button>
+
                     </div>
                 </div>
 
