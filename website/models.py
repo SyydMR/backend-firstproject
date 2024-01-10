@@ -13,8 +13,6 @@ class Country(models.Model):
     def __str__(self):
         return "{} - {}".format(self.name, self.id)
 
-
-
 class City(models.Model):
     name = models.CharField(max_length=255)
     country_id = models.ForeignKey(Country, on_delete=models.SET_NULL, null=True) # Foreign key
@@ -26,11 +24,6 @@ class City(models.Model):
     def __str__(self):
         return "{} - {}".format(self.name, self.id)
 
-
-
-
-
-
 class Corporation(models.Model):
     name = models.CharField(max_length=255)
     created_date = models.DateTimeField(auto_now_add=True)
@@ -40,11 +33,6 @@ class Corporation(models.Model):
 
     def __str__(self):
         return "{} - {}".format(self.name, self.id)
-
-
-
-
-
 
 class Transportation(models.Model):
     name = models.CharField(max_length=255)
@@ -59,13 +47,6 @@ class Transportation(models.Model):
     def __str__(self):
         return "{} - {}".format(self.name, self.id)
 
-
-
-
-
-
-
-
 class Destination(models.Model):
     city_id = models.ForeignKey(City, on_delete=models.SET_NULL, null=True) # Foreign key
     description = models.TextField()
@@ -75,28 +56,31 @@ class Destination(models.Model):
     published_date = models.DateTimeField(null=True)
     created_date = models.DateTimeField(auto_now_add=True)
     updated_date = models.DateTimeField(auto_now=True)
+
     class Meta: # generally
         ordering = ['created_date']
 
     def __str__(self):
-        return "{}".format(self.id)
+        return f"#{self.id} {self.city_id.name}"
 
     # def snippets(self):
     #     return self.description[:100] + '...'
 
 
-
-
-
-
-
-
+class Destination_City(models.Model):
+    """
+    This shows the relation between destination and city to show the origin of the journey
+    """
+    destination = models.ForeignKey(to=Destination, on_delete=models.CASCADE)
+    city = models.ForeignKey(to=City, on_delete=models.CASCADE)
+    transportation = models.ForeignKey(to=Transportation, on_delete=models.CASCADE, blank=True, null=True, default=None)
+    cost = models.BigIntegerField(default=0)
+    
 
 class Invoice(models.Model):
     date_origin = models.DateTimeField()
     count = models.IntegerField(null=False, default=1)
 
-    city_id = models.ForeignKey(City, on_delete=models.SET_NULL, null=True) # Foreign key
     user_id = models.ForeignKey(User, on_delete=models.SET_NULL, null=True) # Foreign key
     transportation_id = models.ForeignKey(Transportation, on_delete=models.SET_NULL, null=True) # Foreign key
     destination_id = models.ForeignKey(Destination, on_delete=models.SET_NULL, null=True) # Foreign key
@@ -125,17 +109,6 @@ class NationalCodes(models.Model):
         return 'national code ' + str(self.id)
 
 
-
-
-
-
-
-
-
-
-
-
-
 class Destination_User(models.Model):
     user_id = models.ForeignKey(User, on_delete=models.SET_NULL, null=True) # Foreign key
     destination_id = models.ForeignKey(Destination, on_delete=models.SET_NULL, null=True) # Foreign key
@@ -147,15 +120,6 @@ class Destination_User(models.Model):
 
     def __str__(self):
         return "{} - {}".format(self.destination_id, self.user_id)
-
-
-
-
-
-
-
-
-
 
 
 class Comment(models.Model):

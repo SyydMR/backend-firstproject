@@ -294,3 +294,13 @@
   margin-left: -70px;
   font-size: 25px;
 }
+.form-control{
+  border: none;
+  outline: none;
+  padding: 10px 20px;
+  border: 1px solid #b2b2b230;
+  cursor: pointer;
+  font-family: 'Nunito';
+  font-size: 17px;
+  font-weight: 700;
+}

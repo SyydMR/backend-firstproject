@@ -23,6 +23,7 @@
         <div class="header">
             <div class="sign-log">
                 {% if request.user.is_authenticated %}
+                <img src="{{request.user.profile_pic.url}}" class="header-img-user" alt="" >
                 <p class="logged" href="{% url 'accounts:signup' %}">
                     {{request.user.first_name}} {{request.user.last_name}}
                 </p>

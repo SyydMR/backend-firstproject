@@ -65,6 +65,7 @@
   position: absolute;
   top: 30px;
   right: 55px;
+  object-fit: cover;
 }
 
 .white-circle {

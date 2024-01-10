@@ -1,5 +1,5 @@
 from django.contrib import admin
-from website.models import Destination, Comment, Destination_User, Invoice, Transportation, Corporation, City, Country, NationalCodes
+from website.models import *
 # Register your models here.
 # @admin.register(Post)
 class DestinationAdmin(admin.ModelAdmin):
@@ -32,6 +32,11 @@ class CommentAdmin(admin.ModelAdmin):
     search_fields = ['title', 'message']
 
 
+@admin.register(Destination_City)
+class Desination_City_ModelAdmin(admin.ModelAdmin):
+    list_display = ['destination_id', 'city']
+
+
 
 admin.site.register(Destination, DestinationAdmin)
 admin.site.register(Destination_User)
@@ -42,6 +47,7 @@ admin.site.register(City, DesignAdmin)
 admin.site.register(Country, DesignAdmin)
 admin.site.register(NationalCodes, NationalCodesAdmin)
 admin.site.register(Comment, CommentAdmin)
+
 
 
 

@@ -3,7 +3,7 @@ from django.contrib.auth.forms import UserCreationForm
 from accounts.models import User
 
 class CustomUserCreationForm(UserCreationForm):
-    # profile_pic = forms.ImageField()
+    # profile_pic = forms.ImageField(required=False)
     first_name = forms.CharField(max_length=30)
     last_name = forms.CharField(max_length=30)
     phone = forms.CharField(max_length=30)
@@ -11,6 +11,3 @@ class CustomUserCreationForm(UserCreationForm):
     class Meta(UserCreationForm.Meta):
         model = User
         fields = UserCreationForm.Meta.fields
-
-    
-

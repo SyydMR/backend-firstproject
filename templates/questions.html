@@ -70,10 +70,10 @@
                         <div class="cir2 circle"></div>
                         <div class="cir3 circle"></div>
 
-                        <img src="{% static 'questions-style/img/poori.jpg' %}" alt="">
+                        <img src="{{comment.user_id.profile_pic.url}}" alt="">
                         <p class="last-name">{{comment.user_id.username}}</p>
                     </div>
-
+                    
                 </div>
 
 
@@ -102,7 +102,7 @@
                         <div class="cir2 circle"></div>
                         <div class="cir3 circle"></div>
 
-                        <img src="{% static 'questions-style/img/poori.jpg' %}" alt="">
+                        <img src="{{comment.user_id.profile_pic.url}}" alt="">
                         <p class="last-name">{{rep.user_id.username}}</p>
                     </div>
 

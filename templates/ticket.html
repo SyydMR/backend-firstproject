@@ -5,7 +5,7 @@
 {% block define_style %}
 <link rel="stylesheet" href="{% static 'ticket-style/css/ticket.css' %}">
 <link rel="stylesheet" href="{% static 'ticket-style/css/media-queries.css' %}">
-<title>Panel</title>
+<title>Buy Ticket</title>
 {% endblock %}
 
 
@@ -34,19 +34,52 @@
 
 
     </div>
+    <h1 class="buy-title">Buy Ticket</h1>
+
+
+    <div class="container-tab">
+
+        <form class="ticket-form" action="{% url 'website:ticket' dest.id %}" method="post">
+
+            <div class="set-org">
+
+                <div>
+                    <div class="count-national-code">
+                        <div class="inp-div">
+                            <label class="lbl-count lbl" id="lbl6" for="count">Count</label>
+                            <input name="count_ncode" class="inp-mellicode inp" onclick="applyTranform6()" min="0"
+                                type="number" id="count">
+                        </div>
+
+                        <div class="div-btn-count">
+                            <button class="submit-btn-count" type="button"
+                                onclick="btn_count_national_code()">submit</button>
+                        </div>
+                    </div>
+
+                    <section class="container-count" id="container_count">
+
+                    </section>
+                </div>
+
+                
+                <div class="filter-travel">
+                    <label for="city-origin">City origin</label>
+                    <select id="city-origin" class="origin-cities">
+                        {% for orig in origin %}
+                        <option value="{{orig.city.id}}" class="options">{{orig.city.name}}</option>
+                        {% endfor %}
+
+                    </select>
+
+                </div>
+
+            </div>
+
+            
 
 
 
-
-
-
-
-
-
-
-    <div class="buy-ticket">
-        <h1 class="buy-title">Buy Ticket</h1>
-        <div class="container-tab">
             <div class="tabs">
                 <input type="radio" id="radio-1" name="tabs" checked />
                 <label class="tab" for="radio-1">
@@ -106,55 +139,7 @@
                 </label>
                 <span class="glider"></span>
             </div>
-        </div>
 
-
-        <form class="ticket-form" action="{% url 'website:ticket' dest.id %}" method="post">
-            {% csrf_token %}
-            <div class="div-fname inp-div">
-                <label class="lbl-fname lbl" id="lbl1" for="fname">First Name</label>
-                <input name="first_name" class="inp-fname inp" onclick="applyTranform1()" type="text" id="fname">
-            </div>
-
-            <div class="div-lname inp-div">
-
-                <label class="lbl-lname lbl" id="lbl2" for="lname">Last Name</label>
-                <input name="last_name" class="inp-lname inp" onclick="applyTranform2()" type="text" id="lname">
-            </div>
-
-            <div class="div-origin inp-div">
-
-                <label class="lbl-origin lbl" id="lbl3" for="origin">Origin</label>
-                <input name="origin_name" class="inp-origin inp" onclick="applyTranform3()" type="text" id="origin">
-            </div>
-
-            <div class="div-phone inp-div">
-
-                <label class="lbl-phone lbl" id="lbl4" for="phone">Phone</label>
-                <input name="phone" class="inp-phone inp" onclick="applyTranform4()" type="phone" id="phone">
-            </div>
-
-            <div class="div-date inp-div">
-
-                <label class="lbl-date lbl" id="lbl5" for="date">Date</label>
-                <input name="date" class="inp-date inp" onclick="applyTranform5()" type="date" id="date">
-
-            </div>
-
-            <div class="count-national-code">
-                <div class="inp-div">
-                    <label class="lbl-count lbl" id="lbl6" for="count">Count</label>
-                    <input name="count_ncode" class="inp-mellicode inp" onclick="applyTranform6()" min="0" type="number" id="count">
-                </div>
-
-                <div class="div-btn-count">
-                    <button class="submit-btn-count" type="button" onclick="btn_count_national_code()">submit</button>
-                </div>
-            </div>
-
-            <section class="container-count" id="container_count">
-
-            </section>
 
             <div class="div-btn">
                 <button class="submit-btn" type="submit">book a ticket</button>
@@ -164,6 +149,12 @@
 
 
     </div>
+
+
+
+
+
+
 </div>
 
 
@@ -173,3 +164,5 @@
 {% block add_js%}
 <script src="{% static 'ticket-style/js/app.js' %}"></script>
 {% endblock%}
+
+
