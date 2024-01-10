@@ -1,11 +1,12 @@
 from django.shortcuts import render, get_object_or_404, redirect
+from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from website.models import Destination, Comment
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from website.models import Invoice, NationalCodes, Destination_City
-from website.forms import CommentForm, PanelForm
+from website.models import *
+from website.forms import CommentForm, PanelForm, TicketForm
 from django.contrib import messages
-
+from accounts.models import User
 def home_view(request):
 
     # ------------------------------------- #
@@ -72,41 +73,56 @@ def ticket_view(request, pid):
     
     def national_code_creator(count):
         national_code_list = []
-        for i in range(count):
+        if (count == None) or (count == ''):
+            count = 0
+        for i in range(int(count)):
             base_str = 'national_code_'
             national_code_number = base_str + str(i + 1)
             national_code_list.append(national_code_number)
         return national_code_list
+    
+    
+    if request.user.is_authenticated:
+        if request.method == 'POST':
+            count_national_code = request.POST.get('count_ncode')
+            if (count_national_code != None) and (count_national_code != '') and (count_national_code != 0):
+                origin_city = request.POST.get('origin-city')
+                ncode_list_name = national_code_creator(count_national_code)
+                ncode_list_value = []
 
-    if request.method == 'POST':
-        name = request.POST.get('first_name')
-        last_name = request.POST.get('last_name')
-        origin = request.POST.get('oigin_name')
-        phone = request.POST.get('phone')
-        date = request.POST.get('date')
-        count_national_code = request.POST.get('count_ncode')
-        national_codes = request.POST.get('national_code_')
-        ncode_list_name = national_code_creator(count_national_code)
-        ncode_list_value = []
-        for ncode in ncode_list_name:
-            ncode_list_value.append(request.POST.get(ncode))
+                for ncode in ncode_list_name:
+                    ncode_list_value.append(request.POST.get(ncode))
+
+                
+            
+                form = TicketForm(request.POST)
+                if form.is_valid():
+                    user = form.save(commit=False)
+                    user.save()
+                    messages.success(request, "Signed up successfully!")
+
+                    form = TicketForm()
+                    context = {'form': form}
+                    return redirect(request, 'factor.html', context)
+
+
+
+
+                trans = Transportation()
+                city = get_object_or_404(City, pk=origin_city)
+                nncodes = NationalCodes()
+                user = User()
+                origin_cities = Destination_City.objects.filter(destination_id=pid)
+                dest = get_object_or_404(Destination, pk=pid, status=1)
+                context = {'dest':dest, 'origin':origin_cities, 'trans': trans, 'nncodes': nncodes, 'user':user, 'city':city}
+
+                return render(request, 'factor.html', context)
         
-        
-
-
-
-
-
-
-
-
-
-        new_Inv = Invoice()
-        new_NationalCode = NationalCodes()
 
     origin_cities = Destination_City.objects.filter(destination_id=pid)
     dest = get_object_or_404(Destination, pk=pid, status=1)
     context = {'dest':dest, 'origin':origin_cities}
+
     return render(request, 'ticket.html', context)
 
 

@@ -40,7 +40,7 @@
     <div class="container-tab">
 
         <form class="ticket-form" action="{% url 'website:ticket' dest.id %}" method="post">
-
+            {% csrf_token %}
             <div class="set-org">
 
                 <div>
@@ -65,7 +65,7 @@
                 
                 <div class="filter-travel">
                     <label for="city-origin">City origin</label>
-                    <select id="city-origin" class="origin-cities">
+                    <select id="city-origin" class="origin-cities" name="origin-city">
                         {% for orig in origin %}
                         <option value="{{orig.city.id}}" class="options">{{orig.city.name}}</option>
                         {% endfor %}
@@ -75,10 +75,6 @@
                 </div>
 
             </div>
-
-            
-
-
 
             <div class="tabs">
                 <input type="radio" id="radio-1" name="tabs" checked />
@@ -139,7 +135,6 @@
                 </label>
                 <span class="glider"></span>
             </div>
-
 
             <div class="div-btn">
                 <button class="submit-btn" type="submit">book a ticket</button>

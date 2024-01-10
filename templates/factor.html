@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load website_tags %}
 
 
 {% block define_style %}
@@ -19,25 +20,24 @@
 
         <div class="header-factor">
             <div class="img-box">
-                <img class="factor-header-img" src="{% static 'factor-style/img/city-img.png' %}" alt="">
+                <img class="factor-header-img" src="{{dest.img.url}}" alt="">
 
 
                 <div class="factor-header-text">
-                    <h1>Paris</h1>
+                    <h1>{{dest.city_id|split_dash}}</h1>
                     <span>24553 fd</span>
                     <p>
-                        Lorem ipsum dolor sit amet consectetur. In turpis amet iaculis id diam. Auctor tellus
-                        egestas nulla risus mi commodo pharetra lacus.
+                        {{dest.description}}
                     </p>
                     <div class="parent-details">
                         <div class="parent-name">
                             <h6>Name</h6>
-                            <p>MohammadReza Daryabaki</p>
+                            <p>{{request.user.first_name}} {{request.user.last_name}}</p>
                         </div>
 
                         <div class="parent-id">
                             <h6>ID</h6>
-                            <p>3991231044</p>
+                            <p>{{request.user.national_code}}</p>
                         </div>
                     </div>
                 </div>
@@ -87,7 +87,7 @@
                 <section class="origin-place">
 
                     <p class="place-txt">FROM</p>
-                    <h2>Tehran</h2>
+                    <h2>{{city.name}}</h2>
                     <p class="origin-date">18Nov2023</p>
                     <p class="origin-time">10AM</p>
                 </section>
@@ -135,7 +135,7 @@
 
                 <section class="destination-place">
                     <p class="place-txt">TO</p>
-                    <h2>Paris</h2>
+                    <h2>{{dest.city_id|split_dash}}</h2>
                     <p class="origin-date">18Nov2023</p>
                     <p class="origin-time">10AM</p>
                 </section>

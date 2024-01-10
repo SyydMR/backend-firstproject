@@ -51,7 +51,7 @@ def signup_view(request):
     if not request.user.is_authenticated:
         if request.method == 'POST':
             form = CustomUserCreationForm(request.POST)
-
+            
             if form.is_valid():
                 user = form.save(commit=False)
                 user.set_password(form.cleaned_data['password1'])
