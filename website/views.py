@@ -86,12 +86,21 @@ def ticket_view(request, pid):
         if request.method == 'POST':
             count_national_code = request.POST.get('count_ncode')
             if (count_national_code != None) and (count_national_code != '') and (count_national_code != 0):
-                origin_city = request.POST.get('origin-city')
                 ncode_list_name = national_code_creator(count_national_code)
                 ncode_list_value = []
 
                 for ncode in ncode_list_name:
                     ncode_list_value.append(request.POST.get(ncode))
+
+                origin_city = request.POST.get('origin-city')
+                tab = request.POST.get('tabs')
+
+                
+
+
+
+
+
 
                 
             

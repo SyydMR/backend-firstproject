@@ -33,7 +33,7 @@ function btn_count_national_code() {
     container.innerHTML += `
     <div class="div-mellicode inp-div">
         <label class="lbl-mellicode lbl">National Code ` + parseInt(i + 1) + `</label>
-        <input name="national_code_` + parseInt(i + 1)  + `" class="inp-mellicode inp" type="text">
+        <input name="national_code" class="inp-mellicode inp" type="text">
     </div>
     `;
   }
